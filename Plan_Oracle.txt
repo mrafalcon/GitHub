@@ -1,0 +1,41 @@
+  №	    день	важн	тема
+
+ 1. 	1		0		Подключение или установка БД, SQL Developer, PL-SQL Developer
+ 2. 	1		1		Что такое базы данных, схемы, таблицы, нормализация
+
+ 3. 	2		2		Типы данных и понятие NULL
+
+ 4. 	3		1		Команда DESCRIBE
+-- 5. 	3		3		Команда SELECT, оператор DISTINCT
+-- 6. 	3		3		Таблица DUAL
+
+-- 7. 	4		3		Математические операторы сравнения, LIKE, AND-OR-NOT, BETWEEN
+
+ 8. 	5		3		Приоритетность операторов
+-- 9. 	5		3		ORDER BY
+
+ 10.	6		1		Функции и их разновидности
+
+ 11.	7		2		SYSDATE, MONTH_BETWEEN, ADD_MONTHS, NEXT_DAY, LAST_DAY, ...
+ 12.	7		2		ROUND и TRUNC для даты
+
+ 13.	8		3		ROUND и TRUNC для чисел, MOD, TRIM, INSTR, SUBSTR, LPAD, RPAD, LENGTH, REPLACE, LOWER, UPPER, INITCAP
+ 14.	8		3		Преобразования типов TO_CHAR, TO_DATE, TO_NUMBER, NVL, NVL2, NULLIF, DECODE, COALESCE, CASE
+
+ 15.	9		1		Вложенные функции (NESTED Single-row)
+
+-- 16.	10		3		Группировка GROUP, COUNT, SUM, AVG, MAX, MIN, HAVING, GROUP BY
+ 17.	10		3		Объединения JOIN, JOIN USING, JOIN ON, NONEQUIJOIN, SELF JOIN, LEFT OUTER JOIN, RIGHT OUTER JOIN, CROSS JOIN, FULL OUTER JOIN
+
+ 18.	11		1		Подзапросы SUBQUERY, SINGLE-ROW SUBQUERY, MULTIPLE-ROW SUBQUERY, CORRELATED SUBQUERY
+
+ 19.	12		3		Множества: SET оператор, UNION, UNION ALL, INTERSECT, MINUS
+
+ 20.	13		3		Команды DML: INSERT, DELETE (простой, с функцией, с подзапросом, в несколько таблиц, из запроса)
+ 21.	13		3		Команды DML: MERGE, COMMIT, ROLLBACK, SAVEPOINT, AUTOCOMMIT
+ 22.	13		2		SELECT FOR UPDATE
+
+ 23.	14		2		Работа с таблицами: CREATE TABLE, ALTER TABLE, TRUNCATE TABLE, DROP TABLE, создание из SUBQUERY
+ 24.	14		2		Понятия CONSTRAINT и INDEX, UNIQUE CONSTRAINT, CHECK CONSTRAINT, PRIMARY KEY, FOREIGN KEY, INDEX B-TREE, INDEX BITMAP
+ 25.	14		3		Представления и последовательности (VIEW, SEQUENCE), ALTER VIEW, DROP VIEW, SYNONYM
+ 26.	14		1		DEFINE, UNDEFINE, VERIFY, AMPERSAND SUBSTITUTION (& и &&)

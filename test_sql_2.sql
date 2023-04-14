@@ -1,8 +1,9 @@
+  drop table ClientBalance;
   create table --if not exists 
   ClientBalance (
    client_id int
     , client_name varchar2(255)
-    , DATEclient_balance_date date
+    , client_balance_date date
     , client_balance_value int
   );
 
@@ -23,5 +24,15 @@ SELECT * FROM dual;
 
 
 select * from ClientBalance 
-union all
-select * from ClientBalance 
+
+
+delete from ClientBalance
+    where rowid not in (
+        select rowid from (
+            select rowid, row_number() over (partition by client_id, client_name, client_balance_date, client_balance_value order by client_id) as numrow
+            from ClientBalance
+        )
+        where numrow = 1
+    );
+
+select * from ClientBalance ;

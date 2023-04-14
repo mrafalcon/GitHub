@@ -1,4 +1,4 @@
-  drop table ClientBalance;
+/*  drop table ClientBalance;
   create table --if not exists 
   ClientBalance (
    client_id int
@@ -6,8 +6,8 @@
     , client_balance_date date
     , client_balance_value int
   );
-
-delete from ClientBalance;
+*/
+--delete from ClientBalance;
 --delete from FIRM.SYS_LOAD_DOCUMENTS;
 
 insert all
@@ -23,7 +23,7 @@ SELECT * FROM dual;
 
 
 
-select * from ClientBalance 
+select * from ClientBalance;
 
 
 delete from ClientBalance
@@ -35,4 +35,4 @@ delete from ClientBalance
         where numrow = 1
     );
 
-select * from ClientBalance ;
+select * from ClientBalance;

@@ -78,17 +78,21 @@ grant ALL on ORG.SYS_LOAD_DOCUMENTS to HR;
 --connect HR/oracle;
 
 delete from ORG.SYS_LOAD_DOCUMENTS;
-delete from FIRM.SYS_LOAD_DOCUMENTS;
+--delete from FIRM.SYS_LOAD_DOCUMENTS;
 
 insert all
 into ORG.SYS_LOAD_DOCUMENTS values (1, 'name11','1',1,'1',to_date('01/01/2023','dd/mm/yyyy'),1,'comm11',1)
+into ORG.SYS_LOAD_DOCUMENTS values (1, 'name11','1',1,'1',to_date('01/01/2023','dd/mm/yyyy'),1,'comm11',1)
 into ORG.SYS_LOAD_DOCUMENTS values (2, 'name12','1',1,'1',to_date('02/01/2023','dd/mm/yyyy'),1,'comm12',1)
 into ORG.SYS_LOAD_DOCUMENTS values (7, 'name17','1',1,'1',to_date('07/01/2023','dd/mm/yyyy'),1,'comm17',1)
+into ORG.SYS_LOAD_DOCUMENTS values (7, 'name17','1',1,'1',to_date('07/01/2023','dd/mm/yyyy'),1,'comm17',1)
 into ORG.SYS_LOAD_DOCUMENTS values (8, 'name18','1',1,'1',to_date('08/01/2023','dd/mm/yyyy'),1,'comm18',1)
+into ORG.SYS_LOAD_DOCUMENTS values (11, 'name111','1',1,'1',to_date('11/01/2023','dd/mm/yyyy'),1,'comm111',1)
 into ORG.SYS_LOAD_DOCUMENTS values (11, 'name111','1',1,'1',to_date('11/01/2023','dd/mm/yyyy'),1,'comm111',1)
 into ORG.SYS_LOAD_DOCUMENTS values (12, 'name112','1',1,'1',to_date('12/01/2023','dd/mm/yyyy'),1,'comm112',1)
 SELECT * FROM dual;
 
+/*
 insert all
 into FIRM.SYS_LOAD_DOCUMENTS values (5, 'name52','1',1,'1',to_date('05/02/2023','dd/mm/yyyy'),1,'comm25',1)
 into FIRM.SYS_LOAD_DOCUMENTS values (2, 'name22','1',1,'1',to_date('02/02/2023','dd/mm/yyyy'),1,'comm22',1)
@@ -97,7 +101,7 @@ into FIRM.SYS_LOAD_DOCUMENTS values (4, 'name24','1',1,'1',to_date('04/02/2023',
 into FIRM.SYS_LOAD_DOCUMENTS values (8, 'name38','1',1,'1',to_date('08/03/2023','dd/mm/yyyy'),1,'comm38',1)
 into FIRM.SYS_LOAD_DOCUMENTS values (9, 'name39','1',1,'1',to_date('09/03/2023','dd/mm/yyyy'),1,'comm39',1)
 SELECT * FROM dual;
-
+*/
 
 -- решение 1 - шаг 1 - удаление из таблицы ORG.SYS_LOAD_DOCUMENTS
 /*

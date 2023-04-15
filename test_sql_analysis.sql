@@ -74,22 +74,13 @@ where o.ord_datetime between to_date('05/02/2020', 'dd/mm/yyyy') and to_date('05
 
 
 with preptable as
-    (select gr_name, extract(month from ord_datetime ) as ord_month, extract(year from ord_datetime ) as ord_year
-    from orders
-    join analysis
-    on an_id = ord_an
-    join groups
-    on an_group = gr_id
-    group by gr_name, ord_datetime
-    order by gr_name, ord_datetime
-    ), 
-    preptable_1 as 
-    (select distinct gr_name, ord_year, ord_month, count(*) over (partition by gr_name, ord_year, ord_month) as count_an 
-    from preptable
-    order by  gr_name, ord_year, ord_month 
-    )
-
-select ord_year, ord_month, gr_name, coalesce(sum(count_an) over (partition by gr_name order by gr_name, ord_year, ord_month rows between unbounded preceding and current row), 0) as total_an
-from preptable_1
-order by ord_year, ord_month, gr_name
+    (select gr_name, extract(month from ord_datetime ) as ord_month, extract(year from ord_datetime ) as ord_year, count(o.ord_an) as count_an
+    from orders o
+    join analysis a on an_id = ord_an
+    join groups g on an_group = gr_id
+    group by gr_name, extract(year from ord_datetime ), extract(month from ord_datetime )
+    ) 
+select ord_year, ord_month, gr_name, coalesce(sum(count_an) over (partition by gr_name order by ord_year, ord_month rows between unbounded preceding and current row), 0) as total_an
+from preptable
+order by gr_name, ord_year, ord_month
 

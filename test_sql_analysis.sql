@@ -83,4 +83,3 @@ with preptable as
 select ord_year, ord_month, gr_name, coalesce(sum(count_an) over (partition by gr_name order by ord_year, ord_month rows between unbounded preceding and current row), 0) as total_an
 from preptable
 order by gr_name, ord_year, ord_month
-

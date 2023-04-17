@@ -13,8 +13,27 @@
         <button type="button" onclick="myFunction()">Кликни меня</button>
         <p></p>
 
-        <h1>Input Data</h1>
+        <h1>Input Data via prompt (json)</h1>
         <button type="button" onclick="insertFunction()">Добавить данные</button>
+        <p></p>
+
+        <h1>Input Data via teg form (post)</h1>
+        <form action="" method="post">
+            <label for="POST-client_id">client_id:</label>
+            <input id="POST-client_id" type="number" name="client_id">
+
+            <label for="POST-client_name">client_name:</label>
+            <input id="POST-client_name" type="text" name="client_name">
+
+            <label for="POST-client_balance">client_balance:</label>
+            <input id="POST-client_balance" type="date" name="client_balance">
+
+            <label for="POST-client_balance_value">client_balance_value:</label>
+            <input id="POST-client_balance_value" type="number" name="client_balance_value">
+
+            <input type="submit" value="Save">
+          </form>
+        <p></p>
 
     </body>
 </html>

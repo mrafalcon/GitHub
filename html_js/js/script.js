@@ -17,7 +17,13 @@ function myFunction() {
 }
 
 
-function insertFunction () {
+function insertFunction() {
+	var clientId = Number(prompt('Введите ID клиента', ''));
+	var clientName = prompt('Введите имя клиента', '');
+	var clientBalance = Number(prompt('Введите дату суммы остатка в формате ДД/ММ/ГГГГ',''));
+	var clientBalanceValue = Number(prompt('Введите сумму остатка клиента на указанную дату',''));
+
+	alert('"clientId" : "'+(clientId)+'", "clientName" :'+(clientName)+'", "clientBalance" :'+(clientBalance)+'", "clientBalanceValue" :'+(clientBalanceValue)+'"')
 
 }
 

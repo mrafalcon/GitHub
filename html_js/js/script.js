@@ -32,4 +32,5 @@ function insertFunction() {
 	jsonString = JSON.stringify(jsonObj);
 	}
 	alert(jsonString);
+	console.log(jsonString);
 }

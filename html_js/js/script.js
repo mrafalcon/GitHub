@@ -18,18 +18,13 @@ function myFunction() {
 
 
 function insertFunction() {
-	var clientId = Number(prompt('Введите ID клиента', ''));
-	var clientName = prompt('Введите имя клиента', '');
-	var clientBalance = Number(prompt('Введите дату суммы остатка в формате ДД/ММ/ГГГГ',''));
-	var clientBalanceValue = Number(prompt('Введите сумму остатка клиента на указанную дату',''));
+	var obj = new Object();
 
-	alert('"clientId" : "'+(clientId)+'", "clientName" :'+(clientName)+'", "clientBalance" :'+(clientBalance)+'", "clientBalanceValue" :'+(clientBalanceValue)+'"')
+	obj.clientId = Number(prompt('Введите ID клиента', ''));
+	obj.clientName = prompt('Введите имя клиента', '');
+	obj.clientBalance = prompt('Введите дату суммы остатка в формате ДД/ММ/ГГГГ','');
+	obj.clientBalanceValue = Number(prompt('Введите сумму остатка клиента на указанную дату',''));
+	var jsonString= JSON.stringify(obj);
 
+	alert(jsonString);
 }
-
-
-
-//client_id int
-//client_name varchar2(255)
-//client_balance_date date
-//client_balance_value int

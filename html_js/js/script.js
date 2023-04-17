@@ -38,3 +38,19 @@ function insertFunction() {
 function getFunction() {
 
 }
+
+
+function insertFormFunction() {
+	var jsonString = '{"newInsert" : []}';
+	const jsonObj = JSON.parse(jsonString);
+		var obj = new Object();
+			obj.client_id = document.tegForm.client_id.value;
+			obj.client_name = document.tegForm.client_name.value;
+			obj.client_balance = document.tegForm.client_balance.value;
+			obj.client_balance_value = document.tegForm.client_balance_value.value;
+		var jsonInsertString= JSON.stringify(obj);
+	jsonObj["newInsert"].push(jsonInsertString);
+	jsonString = JSON.stringify(jsonObj);
+	alert(jsonString);
+	console.log(jsonString);
+}

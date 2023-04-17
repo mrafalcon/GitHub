@@ -18,7 +18,7 @@
         <p></p>
 
         <h1>Input Data via teg form (post)</h1>
-        <form action="" method="post">
+        <form action="" method="post" name="tegForm">
             <label for="POST-client_id">client_id:</label>
             <input id="POST-client_id" type="number" name="client_id">
 
@@ -26,12 +26,12 @@
             <input id="POST-client_name" type="text" name="client_name">
 
             <label for="POST-client_balance">client_balance:</label>
-            <input id="POST-client_balance" type="date" name="client_balance">
+            <input id="POST-client_balance" type="date" name="client_balance" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}">
 
             <label for="POST-client_balance_value">client_balance_value:</label>
             <input id="POST-client_balance_value" type="number" name="client_balance_value">
 
-            <input type="submit" value="Save">
+            <button type="button" onclick="insertFormFunction()">Добавить данные</button>
           </form>
         <p></p>
 

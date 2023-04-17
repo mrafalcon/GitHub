@@ -18,5 +18,12 @@ function myFunction() {
 
 
 function insertFunction () {
-	
+
 }
+
+
+
+//client_id int
+//client_name varchar2(255)
+//client_balance_date date
+//client_balance_value int

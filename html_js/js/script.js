@@ -18,6 +18,5 @@ function myFunction() {
 
 
 function insertFunction () {
-
 	
 }

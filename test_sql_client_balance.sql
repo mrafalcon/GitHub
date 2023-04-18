@@ -36,3 +36,9 @@ delete from ClientBalance
     );
 
 select * from ClientBalance;
+
+
+select * from JSON_TABLE()
+
+
+{"ClientData":["{\"client_id\":\"1\",\"client_name\":\"A\",\"client_balance\":\"02/04/2023\",\"client_balance_value\":\"1\"}","{\"client_id\":\"1\",\"client_name\":\"A\",\"client_balance\":\"02/04/2023\",\"client_balance_value\":\"12\"}","{\"client_id\":\"1\",\"client_name\":\"A\",\"client_balance\":\"02/04/2023\",\"client_balance_value\":\"121\"}","{\"client_id\":\"1\",\"client_name\":\"A\",\"client_balance\":\"13/04/2023\",\"client_balance_value\":\"100\"}","{\"client_id\":\"1\",\"client_name\":\"A\",\"client_balance\":\"17/04/2023\",\"client_balance_value\":\"0\"}","{\"client_id\":\"2\",\"client_name\":\"B\",\"client_balance\":\"17/04/2023\",\"client_balance_value\":\"1000\"}","{\"client_id\":\"2\",\"client_name\":\"B\",\"client_balance\":\"18/04/2023\",\"client_balance_value\":\"0\"}","{\"client_id\":\"2\",\"client_name\":\"B\",\"client_balance\":\"16/04/2023\",\"client_balance_value\":\"0\"}","{\"client_id\":\"2\",\"client_name\":\"B\",\"client_balance\":\"11/04/2023\",\"client_balance_value\":\"1000\"}","{\"client_id\":\"2\",\"client_name\":\"B\",\"client_balance\":\"11/04/2023\",\"client_balance_value\":\"1000\"}","{\"client_id\":\"2\",\"client_name\":\"B\",\"client_balance\":\"11/04/2023\",\"client_balance_value\":\"1000\"}","{\"client_id\":\"2\",\"client_name\":\"B\",\"client_balance\":\"11/04/2023\",\"client_balance_value\":\"1000\"}"]}

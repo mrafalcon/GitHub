@@ -19,7 +19,7 @@ function myFunction() {
 
 function insertFunction() {
 	var count = Number(prompt('Введите количество вводимых записей', ''));
-	var jsonString = '{"newInsert" : []}';
+	var jsonString = '{"ClientData" : []}';
 	for (let i = 0; i < count; i++) {
 		const jsonObj = JSON.parse(jsonString);
 			var obj = new Object();
@@ -28,7 +28,7 @@ function insertFunction() {
 				obj.client_balance = prompt('Введите дату суммы остатка клиента (ID '+(obj.client_id)+', имя '+(obj.client_name)+') в формате ДД/ММ/ГГГГ','');
 				obj.client_balance_value = Number(prompt('Введите сумму остатка клиента (ID '+(obj.client_id)+', имя '+(obj.client_name)+') на дату '+ obj.client_balance,''));
 			var jsonInsertString= JSON.stringify(obj);
-			jsonObj["newInsert"].push(jsonInsertString);
+			jsonObj["ClientData"].push(jsonInsertString);
 		jsonString = JSON.stringify(jsonObj);
 	}
 	alert(jsonString);
@@ -39,18 +39,49 @@ function getFunction() {
 
 }
 
+let check = 0;
+var jsonPost = '{\"ClientData\":[]}';
+function addFunction() {
+	const jsonObj = JSON.parse(jsonPost);
+	jsonObj["ClientData"].push(insertFormFunction());
+	jsonPost = JSON.stringify(jsonObj);
+}
+
+function copyFunction() {
+	console.log(jsonPost)
+}
 
 function insertFormFunction() {
-	var jsonString = '{"newInsert" : []}';
+//	check = 1;
+	var jsonString = '{\"ClientData\" : []}';
+	var client_balance = formateDate(document.tegForm.client_balance.value, "-");
+	console.log(client_balance);
 	const jsonObj = JSON.parse(jsonString);
 		var obj = new Object();
 			obj.client_id = document.tegForm.client_id.value;
 			obj.client_name = document.tegForm.client_name.value;
-			obj.client_balance = document.tegForm.client_balance.value;
+			obj.client_balance = client_balance;
 			obj.client_balance_value = document.tegForm.client_balance_value.value;
 		var jsonInsertString= JSON.stringify(obj);
-	jsonObj["newInsert"].push(jsonInsertString);
+	jsonObj["ClientData"].push(jsonInsertString);
 	jsonString = JSON.stringify(jsonObj);
-	alert(jsonString);
-	console.log(jsonString);
+//	alert(jsonString);
+//	console.log(jsonString);
+	return jsonInsertString;
+}
+
+
+function formateDate(_date,_delimeter) {
+	var spliteDate = _date.split(_delimeter);
+	var formatedDay;
+	var formatedMonth;
+	if (spliteDate[2] < 10 )	{
+		formatedDay=('0'+ (_date[2]))
+	} else {
+		formatedDay=(spliteDate[2])
+	};
+	formatedMonth=(spliteDate[1]);
+	var formatedDate = (formatedDay +'/'+ formatedMonth +'/'+ (spliteDate[0]) );
+	return formatedDate;
+
 }

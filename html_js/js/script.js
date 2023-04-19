@@ -1,11 +1,17 @@
 var x = 0;  //не все браузеры поддерживают! лучше использовать  "var"// еще хром не любит локальные переменные, лучше объявлять глобальные!
 function myFunction() {
-	console.log("Hello, world! ", x);
+	console.log("Hello, world! ", abs(x));
 	if (x >= 5) {
 		console.log("test_count_var_1 >=5! ", x % 10, " ", x);
 		x = -5;
 	} else if (x<=0) {
-		document.getElementById("heading1").style.color = 'black';
+		if ((x*-1) % 2 == 1) {
+			document.getElementById("demo").innerHTML = "Привет, 'минус' javascript!";
+			document.getElementById("heading1").style.color = 'green';
+		} else {
+			document.getElementById("demo").innerHTML = "Пока,'минус' javascript!";
+			document.getElementById("heading1").style.color = 'white';
+		};
 	} else if (x % 2 == 1) {
     	document.getElementById("demo").innerHTML = "Привет, javascript!";
 		document.getElementById("heading1").style.color = 'blue';

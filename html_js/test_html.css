@@ -96,7 +96,6 @@
  }
  /* форма поиска */
  #searchform {
-    float: right;
     margin-left: 46px;
     display: inline-block;
     position: relative;

@@ -44,7 +44,6 @@
             
             <div class="posts-list">
                 <article id="post-1" class="post">
-                  <div class="post-image"><a href=""><img src="https://html5book.ru/wp-content/uploads/2016/05/rasskaz_slovar_rodnoy_prirodi.jpg"></a></div>
                   <div class="post-content">
                     <div class="category"><a href="">Пост #1</a></div>
                     <h2 class="post-title" id="heading1">Test Head</h2>
@@ -66,10 +65,19 @@
                 <article id="post-2" class="post">
                     <div class="post-content">
                       <div class="category"><a href="">Пост #2</a></div>
-                      
+                      <table>
+                        <tr>
+                            <td>
+                                <p>1</p>
+                            </td>
+                            <td>
+                                <p>2</p>
+                            </td>
+                        </tr>
+                      </table>
 
                       <div class="post-footer">
-                        <a class="more-link" href="" onclick="insertFunction()">Загрузить данные</a>
+                        <a class="more-link" href="" onclick="">Загрузить данные</a>
                         <div class="post-social">
                           <a href="" target="_blank"><i class="fa fa-facebook"></i></a>
                           <a href="" target="_blank"><i class="fa fa-twitter"></i></a>
@@ -113,13 +121,7 @@
                 </li>
               </ul>
             </div>
-            <div class="widget">
-              <h3 class="widget-title">Подписка на рассылку</h3>
-              <form action="" method="post" id="subscribe">
-                <input type="email" name="email" placeholder="Ваш email" required>
-                <button type="submit"><i class="fa fa-paper-plane-o"></i></button>
-              </form>
-            </div>
+            
           </aside>
           </div>
 
@@ -140,10 +142,10 @@
               </div>
             </div>
           </footer>
-          <script>
+        <script>
           $('.nav-toggle').on('click', function(){
           $('#menu').toggleClass('active');
           });
-          </script>
+        </script>
     </body>
 </html>

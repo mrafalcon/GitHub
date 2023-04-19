@@ -160,6 +160,10 @@
  .nav-toggle span:after {
     bottom: -10px;
  }
+
+ #button {
+    height: 45px;
+ }
  /* класс, который будет добавлен в верхнему меню при нажатии на кнопку и покажет скрытое меню*/
  #menu.active {
     max-height: 123px;

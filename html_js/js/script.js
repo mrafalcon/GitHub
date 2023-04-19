@@ -1,6 +1,6 @@
 var x = 0;  //не все браузеры поддерживают! лучше использовать  "var"// еще хром не любит локальные переменные, лучше объявлять глобальные!
 function myFunction() {
-	console.log("Hello, world! ", abs(x));
+	console.log("Hello, world! ", -x);
 	if (x >= 5) {
 		console.log("test_count_var_1 >=5! ", x % 10, " ", x);
 		x = -5;

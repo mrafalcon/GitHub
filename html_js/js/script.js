@@ -1,4 +1,4 @@
-let x = 0;  //не все браузеры поддерживают! лучше использовать  "var"// еще хром не любит локальные переменные, лучше объявлять глобальные!
+var x = 0;  //не все браузеры поддерживают! лучше использовать  "var"// еще хром не любит локальные переменные, лучше объявлять глобальные!
 function myFunction() {
 	console.log("Hello, world! ", x);
 	if (x >= 5) {
@@ -16,18 +16,19 @@ function myFunction() {
 	x = x + 1;
 }
 
+var count;
 
 function insertFunction() {
-	var count = Number(prompt('Введите количество вводимых записей', ''));
-	var jsonString = '{"ClientData" : []}';
+	count = Number(prompt('Введите количество вводимых записей', ''));
+	jsonString = '{"ClientData" : []}';
 	for (let i = 0; i < count; i++) {
 		const jsonObj = JSON.parse(jsonString);
-			var obj = new Object();
+			obj = new Object();
 				obj.client_id = Number(prompt('Введите ID клиента', ''));
 				obj.client_name = prompt('Введите имя клиента (ID '+(obj.client_id)+')', '');
 				obj.client_balance = prompt('Введите дату суммы остатка клиента (ID '+(obj.client_id)+', имя '+(obj.client_name)+') в формате ДД/ММ/ГГГГ','');
 				obj.client_balance_value = Number(prompt('Введите сумму остатка клиента (ID '+(obj.client_id)+', имя '+(obj.client_name)+') на дату '+ obj.client_balance,''));
-			var jsonInsertString= JSON.stringify(obj);
+			jsonInsertString= JSON.stringify(obj);
 			jsonObj["ClientData"].push(jsonInsertString);
 		jsonString = JSON.stringify(jsonObj);
 	}
@@ -39,7 +40,7 @@ function getFunction() {
 
 }
 
-let check = 0;
+//var check = 0;
 var jsonPost = '{\"ClientData\":[]}';
 function addFunction() {
 	const jsonObj = JSON.parse(jsonPost);
@@ -49,20 +50,28 @@ function addFunction() {
 
 function copyFunction() {
 	console.log(jsonPost)
+	saveFunction();
+	jsonPost = '{\"ClientData\":[]}';
+
 }
+
+var jsonString;
+var client_balance;
+var obj;
+var jsonInsertString;
 
 function insertFormFunction() {
 //	check = 1;
-	var jsonString = '{\"ClientData\" : []}';
-	var client_balance = formateDate(document.tegForm.client_balance.value, "-");
+	jsonString = '{\"ClientData\" : []}';
+	client_balance = formateDate(document.tegForm.client_balance.value, "-");
 	console.log(client_balance);
 	const jsonObj = JSON.parse(jsonString);
-		var obj = new Object();
+		obj = new Object();
 			obj.client_id = document.tegForm.client_id.value;
 			obj.client_name = document.tegForm.client_name.value;
 			obj.client_balance = client_balance;
 			obj.client_balance_value = document.tegForm.client_balance_value.value;
-		var jsonInsertString= JSON.stringify(obj);
+		jsonInsertString= JSON.stringify(obj);
 	jsonObj["ClientData"].push(jsonInsertString);
 	jsonString = JSON.stringify(jsonObj);
 //	alert(jsonString);
@@ -70,18 +79,34 @@ function insertFormFunction() {
 	return jsonInsertString;
 }
 
+var spliteDate;
+var formatedDay;
+var formatedMonth;
+var formatedDate;
 
 function formateDate(_date,_delimeter) {
-	var spliteDate = _date.split(_delimeter);
-	var formatedDay;
-	var formatedMonth;
+	spliteDate = _date.split(_delimeter);
 	if (spliteDate[2] < 10 )	{
 		formatedDay=('0'+ (_date[2]))
 	} else {
 		formatedDay=(spliteDate[2])
 	};
 	formatedMonth=(spliteDate[1]);
-	var formatedDate = (formatedDay +'/'+ formatedMonth +'/'+ (spliteDate[0]) );
+	formatedDate = (formatedDay +'/'+ formatedMonth +'/'+ (spliteDate[0]) );
 	return formatedDate;
 
+}
+
+//import { writeFileSync } from "fs";
+
+function saveFunction() {
+	writeToFile("outputData"+(new Date().toLocaleString())+".txt",jsonPost)
+}
+
+function writeToFile(d1, d2){
+	let blob = new Blob([d2], {type: "text/plain"});
+	let link = document.createElement("a");
+	link.setAttribute("href", URL.createObjectURL(blob));
+	link.setAttribute("download", d1);
+	link.click();
 }

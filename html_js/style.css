@@ -39,6 +39,7 @@
     width: 100%;
     max-width: 960px;
     padding: 0 15px;
+    flex-grow: 1;
  }
 
 

@@ -241,3 +241,27 @@ aside {
        margin-bottom: 0;
     }
  }
+
+  /* блок для статьи */
+.post {
+   margin-bottom: 35px;
+   background: #f7f7f7;
+}
+.post-content p {
+   line-height: 1.5;
+   padding-bottom: 1em;
+}
+.post-image {
+   margin-bottom: 30px;
+}
+.category {
+   margin-bottom: 15px;
+}
+.category a {
+   color: #F8B763;
+   text-transform: uppercase;
+}
+.post-title {
+   margin-bottom: 12px;
+   font-size: 26px;
+}

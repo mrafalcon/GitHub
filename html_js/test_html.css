@@ -1,57 +1,6 @@
- /* блок для статьи */
- .post {
-    margin-bottom: 35px;
- }
- .post-content p {
-    line-height: 1.5;
-    padding-bottom: 1em;
- }
- .post-image {
-    margin-bottom: 30px;
- }
- .category {
-    margin-bottom: 15px;
- }
- .category a {
-    color: #F8B763;
-    text-transform: uppercase;
- }
- .post-title {
-    margin-bottom: 12px;
-    font-size: 26px;
- }
+
  /* блок с кнопкой "продолжить чтение" и кнопками социальных сетей */
- .post-footer {
-    border-top: 1px solid #EBEBE3;
-    border-bottom: 1px solid #EBEBE3;
-    position: relative;
-    margin-top: 15px;
- }
- .more-link {
-    position: relative;
-    display: inline-block;
-    font-size: 10px;
-    text-transform: uppercase;
-    color: white;
-    line-height: 44px;
-    padding: 0 22px;
-    background: #3C3D41;
-    letter-spacing: 0.1em;
-    white-space: nowrap;
- }
- .more-link:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    top: 0;
-    right: 0;
-    border: solid transparent;
-    border-width: 22px 18px;
-    border-left-color: #3C3D41;
-    transform: translateX(100%);
- }
+
  .post-social {
     position: absolute;
     left: auto;
@@ -127,62 +76,6 @@
  .widget-post-title {
     float: left;
  }
- /* форма подписки */
- #subscribe {
-    position: relative;
-    width: 100%;
-    padding: 15px 0;
- }
- #subscribe input {
-    width: 100%;
-    display: block;
-    float: left;
-    border: 2px solid #EBEBE3;
-    padding: 0 0 0 10px;
-    height: 40px;
-    position: relative;
-    outline: none;
-    color: #9E9C9C;
-    font-style: italic;
- }
- #subscribe button {
-    padding: 0 15px;
-    background: transparent;
-    height: 40px;
-    border: none;
-    position: absolute;
-    right: 0;
-    color: #EF5A42;
-    cursor: pointer;
-    font-size: 18px;
- }
- #subscribe input:focus+button {
-    background: #EF5A42;
-    color: white;
- }
 
- footer {
-    padding: 30px 0;
-    background: #3C3D41;
-    color: white;
-    flex-shrink: 0;
- }
- .footer-col {
-    width: 33.3333333333%;
-    float: left;
- }
- .footer-col a {
-    color: white;
- }
- .footer-col:last-child {
-    text-align: right;
- }
- .social-bar-wrap {
-    text-align: center;
- }
- .social-bar-wrap a {
-    padding: 0 7px;
-    font-size: 18px;
- }
 
  

@@ -22,7 +22,10 @@ function myFunction() {
 	x = x + 1;
 }
 
-
+function colorFunction (color) {
+	document.getElementById("post-1").style.background = color;
+	document.getElementById("post-2").style.background = color;
+}
 
 var count;
 

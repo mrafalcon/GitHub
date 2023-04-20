@@ -41,6 +41,95 @@
     padding: 0 15px;
  }
 
+
+
+  /* правый контейнер */
+.posts-list {
+   margin-bottom: 30px;
+   width: 64%;
+   float: right;
+}
+
+   /* блок для статьи */
+.post {
+   margin-bottom: 35px;
+   background: #f7f7f7;
+
+}
+.post-content p {
+   line-height: 1.5;
+   padding-bottom: 1em;
+}
+.post-image {
+   margin-bottom: 30px;
+}
+.category {
+   margin-bottom: 15px;
+}
+.category a {
+   color: #F8B763;
+   text-transform: uppercase;
+}
+.post-title {
+   margin-bottom: 12px;
+   font-size: 26px;
+}
+
+.post-footer {
+   border-top: 1px solid #EBEBE3;
+   border-bottom: 1px solid #EBEBE3;
+   position: relative;
+   margin-top: 11px;
+   padding: 10px 10px;
+   text-align: center;
+   vertical-align: middle;
+}
+
+.more-link {
+   position: relative;
+   display: inline-block;
+   font-size: 10px;
+   text-transform: uppercase;
+   color: white;
+   line-height: 44px;
+   padding: 0 22px;
+   background: #3C3D41;
+   letter-spacing: 0.1em;
+   white-space: nowrap;
+}
+.more-link:after {
+   content: '';
+   display: block;
+   position: absolute;
+   width: 0;
+   height: 0;
+   top: 0;
+   right: 0px;
+   border: solid transparent;
+   border-width: 24px 18px;
+   border-left-color: #3C3D41;
+   transform: translateX(100%);
+}
+.more-link:before {
+   content: '';
+   display: block;
+   position: absolute;
+   width: 0;
+   height: 0;
+   top: 0;
+   left: -35px;
+   border: solid transparent;
+   border-width: 24px 18px;
+   border-left-color: #3C3D41;
+   transform: rotate(180deg);
+}
+
+/* левый контейнер */
+aside {
+   width: 33%;
+   float: left;
+}
+
  header {
     width: 100%;
     background: white;
@@ -141,20 +230,6 @@
     max-height: 123px;
  }
 
-  /* правый контейнер */
-.posts-list {
-    margin-bottom: 30px;
-    width: 64%;
-    float: right;
-    background: #f7f7f7;
- }
-
- /* левый контейнер */
-aside {
-    width: 33%;
-    float: left;
- }
-
  @media (max-width: 768px) {
     /* показываем кнопку для переключения верхней навигации */
     .nav-toggle {
@@ -242,26 +317,48 @@ aside {
     }
  }
 
-  /* блок для статьи */
-.post {
-   margin-bottom: 35px;
-   background: #f7f7f7;
+ footer {
+   padding: 30px 0;
+   background: #3C3D41;
+   color: white;
+   flex-shrink: 0;
 }
-.post-content p {
-   line-height: 1.5;
-   padding-bottom: 1em;
+.footer-col {
+   width: 33.3333333333%;
+   float: left;
 }
-.post-image {
+.footer-col a {
+   color: white;
+}
+.footer-col:last-child {
+   text-align: right;
+}
+.social-bar-wrap {
+   text-align: center;
+}
+.social-bar-wrap a {
+   padding: 0 7px;
+   font-size: 18px;
+}
+
+
+.widget {
+   padding: 20px 15px;
+   background: white;
+   font-size: 13px;
    margin-bottom: 30px;
+   box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
 }
-.category {
-   margin-bottom: 15px;
+.widget-title {
+   font-size: 18px;
+   padding: 10px;
+   margin-bottom: 20px;
+   text-align: center;
+   border: 2px solid #F8B763;
+   box-shadow: 3px 3px 0 0 #F8B763;
 }
-.category a {
-   color: #F8B763;
-   text-transform: uppercase;
-}
-.post-title {
-   margin-bottom: 12px;
-   font-size: 26px;
+
+.widget-posts-list li {
+   border-top: 1px solid #EBEBE3;
+   padding: 15px 0;
 }

@@ -77,11 +77,21 @@
 }
 
 .post-footer {
-   border-top: 1px solid #EBEBE3;
+
    border-bottom: 1px solid #EBEBE3;
    position: relative;
    margin-top: 12px;
-   padding: 10px 10px;
+   padding: 10px;
+   text-align: center;
+   vertical-align: middle;
+}
+
+.post-delimeter {
+
+   border-bottom: 1px solid #EBEBE3;
+   position: relative;
+   margin-bottom: 12px;
+   padding: 5px;
    text-align: center;
    vertical-align: middle;
 }
@@ -105,7 +115,7 @@
    width: 0;
    height: 0;
    top: 0;
-   right: 0px;
+   right: -3px;
    border: solid transparent;
    border-width: 24px 18px;
    border-left-color: #3C3D41;
@@ -118,11 +128,22 @@
    width: 0;
    height: 0;
    top: 0;
-   left: -36px;
+   left: -39px;
    border: solid transparent;
    border-width: 24px 18px;
    border-left-color: #3C3D41;
    transform: rotate(180deg);
+}
+
+.more-link-1 {
+   position: relative;
+   display: inline-block;
+   font-size: 10px;
+   text-transform: uppercase;
+   color: white;
+   padding: 0 40px;
+   background: gray;
+   white-space: nowrap;
 }
 
 /* левый контейнер */

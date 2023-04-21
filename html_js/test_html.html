@@ -40,11 +40,13 @@
             <div class="category"><a>Пост #1</a></div>
               <h2 class="post-title" id="heading1">Test Head</h2>
               <p id="demo">Привет, мир!</p>
-              <button type="button" onclick="myFunction()" style="height: 35px; margin-bottom: 10px">Кликни меня</button>
+              <button type="button" class="more-link-1" onclick="myFunction()" style="height: 35px; margin-bottom: 10px">Кликни меня</button>
+              <div class="post-delimeter">
+              </div>
               <p>Кнопка, расположенная выше меняет цвет заголовка, а также текст, взависимости от значения внутренней переменной.</p>
               <p>Если нажать на текст, расположенный ниже, то будет реализован скрипт, которые добавляет данные с помощью всплывающих окон.</p>
               <div class="post-footer">
-                <a class="more-link" onclick="insertFunction()">Добавить данные</a>
+                <button type="button" class="more-link" onclick="insertFunction()">Добавить данные</button>
               </div>
           </div>
         </article>
@@ -65,8 +67,9 @@
                <td>Поддерживается</td>
                <td>Нет</td><td>Да</td><td>Нет</td><td>Да</td><td>Да</td><td>Да</td><td>Да</td>
               </tr>
-             </table>
-             
+            </table>
+            <div class="post-footer">
+            </div>
           </div>
         </article>
 
@@ -101,7 +104,7 @@
              </table>
 
             <div class="post-footer">
-              <a class="more-link" onclick="updateTable(-1000,1000)">Обновить данные</a>
+              <button type="button" class="more-link" onclick="updateTable(-1000,1000)">Обновить данные</button>
             </div>
           </div>
         </article>

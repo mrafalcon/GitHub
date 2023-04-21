@@ -24,7 +24,7 @@ function myFunction() {
 
 function colorFunction (color) {
 	document.getElementById("post-1").style.background = color;
-	document.getElementById("post-2").style.background = color;
+	document.getElementById("post-3").style.background = color;
 }
 
 var count;
@@ -120,4 +120,44 @@ function writeToFile(d1, d2){
 	link.setAttribute("href", URL.createObjectURL(blob));
 	link.setAttribute("download", d1);
 	link.click();
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function updateTable(min,max) {
+	document.getElementById("tid1").innerHTML = Math.abs(getRandomInt(min, max));
+	document.getElementById("tid2").innerHTML = Math.abs(getRandomInt(min, max));
+	document.getElementById("tnameA").innerHTML = makeName();
+	document.getElementById("tnameB").innerHTML = makeName();
+	document.getElementById("tdate1").innerHTML = (Math.abs(getRandomInt(min, max)) % 27 + 1 )+'/'+ (Math.abs(getRandomInt(min, max))%11 + 1 ) +'/'+ (Math.abs(getRandomInt(min, max))%12 + 11 );
+	document.getElementById("tdate2").innerHTML = (Math.abs(getRandomInt(min, max))% 27 + 1 )+'/'+ (Math.abs(getRandomInt(min, max))%11 + 1 ) +'/'+ (Math.abs(getRandomInt(min, max))%12 + 11 );
+	document.getElementById("tdate3").innerHTML = (Math.abs(getRandomInt(min, max))% 27 + 1 )+'/'+ (Math.abs(getRandomInt(min, max))%11 + 1 ) +'/'+ (Math.abs(getRandomInt(min, max))%12 + 11 );
+	document.getElementById("tdate4").innerHTML = (Math.abs(getRandomInt(min, max))% 27 + 1 )+'/'+ (Math.abs(getRandomInt(min, max))%11 + 1 ) +'/'+ (Math.abs(getRandomInt(min, max))%12 + 11 );
+	document.getElementById("tbal1").innerHTML = getRandomInt(min, max);
+	document.getElementById("tbal2").innerHTML = getRandomInt(min, max);
+	document.getElementById("tbal3").innerHTML = getRandomInt(min, max);
+	document.getElementById("tbal4").innerHTML = getRandomInt(min, max);
+	document.getElementById("tbal5").innerHTML = getRandomInt(min, max);
+	document.getElementById("ttime1").innerHTML = Math.abs(getRandomInt(min, max))%24+':00';
+	document.getElementById("ttime2").innerHTML = Math.abs(getRandomInt(min, max))%24+':00';
+	document.getElementById("ttime3").innerHTML = Math.abs(getRandomInt(min, max))%24+':00';
+	document.getElementById("ttime4").innerHTML = Math.abs(getRandomInt(min, max))%24+':00';
+	document.getElementById("ttime5").innerHTML = Math.abs(getRandomInt(min, max))%24+':00';
+	document.getElementById("ttime6").innerHTML = Math.abs(getRandomInt(min, max))%24+':00';
+}
+
+
+function makeName() {
+	let length = Math.abs(Math.floor(Math.random()*10 + 1));
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
 }

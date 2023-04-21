@@ -82,7 +82,7 @@
    position: relative;
    margin-top: 12px;
    padding: 10px;
-   text-align: center;
+   text-align: left;
    vertical-align: middle;
 }
 
@@ -108,7 +108,7 @@
    letter-spacing: 0.1em;
    white-space: nowrap;
 }
-.more-link:after {
+/*.more-link:after {
    content: '';
    display: block;
    position: absolute;
@@ -134,7 +134,7 @@
    border-left-color: #3C3D41;
    transform: rotate(180deg);
 }
-
+*/
 .more-link-1 {
    position: relative;
    display: inline-block;
@@ -305,11 +305,7 @@ aside {
     #menu {
        top: 118px;
     }
-    /* позиционируем форму поиска по левому краю */
-    #searchform {
-       float: left;
-       margin-left: 0;
-    }
+
     /* убираем верхнюю и нижнюю границы и выравниваем кнопку по центру */
     .post-footer {
        border-top: none;

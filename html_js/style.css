@@ -48,7 +48,7 @@
 .posts-list {
    margin-bottom: 30px;
    width: 64%;
-   float: right;
+   float: left;
 }
 
    /* блок для статьи */
@@ -149,7 +149,7 @@
 /* левый контейнер */
 aside {
    width: 33%;
-   float: left;
+   float: right;
 }
 
  header {

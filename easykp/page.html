@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>РОСЖЕЛДОР ПРОЕКТ: ЕАСУКП</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script/script.js"></script>
+        <script src="script/jquery.js"></script>
+
+    </head>
+
+    <body>
+    <header>
+        <div class="logo">
+            <div class="img">
+                <img src="img/logo.png">
+            </div>
+            <div class="text">
+                <h4>ЕАСУКП</h4>
+            </div>
+        </div>
+        <ul id="main-menu">
+            <li><a href="#" id="mm1" onclick="activeMainMenu(this.id)">ОБЪЕКТЫ</a></li>
+            <li><a href="#" id="mm2" onclick="activeMainMenu(this.id)">ПОЛЬЗОВАТЕЛЬ</a></li>
+            <li><a href="#" id="mm3" onclick="activeMainMenu(this.id)">ПРОФИЛЬ</a></li>
+            <li><a href="#" id="mm4" onclick="activeMainMenu(this.id)">СПРАВОЧНИКИ</a></li>
+            <li><a href="#" id="mm5" onclick="activeMainMenu(this.id)">ВЫХОД</a></li>
+        </ul>
+        <ul id="object-menu">
+            <li><a href="#" id="om1" onclick="activeObjectMenu(this.id)">ОПЕР.</a></li>
+            <li><a href="#" id="om2" onclick="activeObjectMenu(this.id)">ОПЕР.Интеграция</a></li>
+            <li><a href="#" id="om3" onclick="activeObjectMenu(this.id)">МОИ ДОКУМЕНТЫ</a></li>
+            <li><a href="#" id="om4" onclick="activeObjectMenu(this.id)">ОПЕР.Диадок</a></li>
+            <li><a href="#" id="om5" onclick="activeObjectMenu(this.id)">ЗАДАНИЯ</a></li>
+            <li><a href="#" id="om6" onclick="activeObjectMenu(this.id)">ДОГОВОРЫ</a></li>
+            <li><a href="#" id="om7" onclick="activeObjectMenu(this.id)">КОНКУРС</a></li>
+            <li><a href="#" id="om8" onclick="activeObjectMenu(this.id)">ЗАКУПКИ</a></li>
+            <li><a href="#" id="om9" onclick="activeObjectMenu(this.id)">ОТЧЕТЫ</a></li>
+            <li><a href="#" id="om10" onclick="activeObjectMenu(this.id)">Б. ПОИСК</a></li>
+            <li><a href="#" id="om11" onclick="activeObjectMenu(this.id)">ПОИСК</a></li>
+            <li><a href="#" id="om12" onclick="activeObjectMenu(this.id)">СЧЕТА</a></li>
+            <li><a href="#" id="om13" onclick="activeObjectMenu(this.id)">АВТОМАТИЗАЦИЯ</a></li>
+            <li><a href="#" id="om14" onclick="activeObjectMenu(this.id)">ПРОИЗВОДСТВО</a></li>
+        </ul>
+
+    </header>
+
+    <container> 
+        <div class="leftside">
+            <div class="containerheader">
+                <p>левая часть</p>
+                <ul id="left-menu">
+                    <li><a href="#" id="lm1" onclick="activeLeftMenu(this.id)">Доходные договоры/ДС</a></li>
+                    <li><a href="#" id="lm2" onclick="activeLeftMenu(this.id)">Расходные договоры/ДС</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="rightside">
+            <div class="containerheader">
+                <p>правая часть</p>
+            </div>
+        </div>
+        
+
+    </container>
+    </body>
+</html>

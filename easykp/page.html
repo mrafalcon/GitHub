@@ -48,24 +48,41 @@
 
     <container> 
         <div class="leftside">
-            <div class="leftheader">
-                <ul id="left-menu">
-                    <li><a href="#" id="lm1" onclick="activeLeftMenu(this.id)">Доходные договоры/ДС</a></li>
-                    <li><a href="#" id="lm2" onclick="activeLeftMenu(this.id)">Расходные договоры/ДС</a></li>
-                </ul>
+            <div class="containerheader">
+                <div class="tabs">
+                    <input type="radio" name="lm" id="lm1" onclick="activeLeftMenu(this.id)" value="" checked>
+                    <label for="lm1">Доходные договоры/ДС</label>
+                    <input type="radio" name="lm" id="lm2" onclick="activeLeftMenu(this.id)" value="">
+                    <label for="lm2">Расходные договоры/ДС</label>
+                </div>
             </div>
+            <div class="post-delimeter"></div>
+            <p> Период не учитывать</p>
+            <div class="post-delimeter"></div>
+            <p> Простой доходный договор</p>
 
         </div>
 
         <div class="rightside">
-            <div class="rightheader">
-                <ul id="right-menu">
-                    <li><a href="#" id="rm1" onclick="activeRightMenu(this.id)">Документы Для Диадок</a></li>
-                </ul>
+            <div class="containerheader">
+                <div class="tabs">
+                    <input type="radio" name="rm" id="rm1" onclick="activeRightMenu(this.id)" value="" checked>
+                    <label for="rm1">Документы Для Диадок</label>
+                </div>
             </div>
+            <div class="post-delimeter"></div>
+            <p> фильтр</p>
+
         </div>
         
 
+
+    <div id="content-1"></div>
+    <div id="content-2"></div>
+    <div id="content-3"></div>
+
     </container>
+
+  
     </body>
 </html>

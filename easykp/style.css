@@ -56,7 +56,7 @@ header{
 .text{
     position: absolute; 
     left:268px; 
-    top:7%;
+    top:25px;
     font-size: 21px;
     color: #ccd7d3;
 }
@@ -146,6 +146,7 @@ header{
 
 
 #container {
+    margin-bottom: 5px;
     margin: 0 auto;
     width: 100%;
 }
@@ -153,71 +154,88 @@ header{
 .leftside {
     width: 30%;
     float: left;
-    background: lightcyan;
-}
-#left-menu {
-    float: none;
-    margin: 0 auto;
-    display: table;
-}
-#left-menu li {
-    display: inline-block;
-    margin-right: 30px;
-}
-#left-menu a {
-    color: red;
-    display: block;
-    font-size: 15px;
-    text-align: center;
-}
-#left-menu li:last-child {
-    margin-right: 0;
-}
-
-
-.leftheader {
-    width: 100%;
-    background: lightgray;
-    box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
-
-    margin-bottom: 30px;
-    position: relative;
+    background: #f7f7f7;
     border-width: 1px;
     border-color: #373737;
     border-style: solid;
+}
+
+
+
+.containerheader {
+    width: 100%;
+    background: #f7f7f7;
+    margin-bottom: 5px;
+    position: relative;
+
 }
 
 
 .rightside {
     width: 70%;
     float: right;
-    background: lightblue;
-}
-
-.rightheader {
-    width: 100%;
-    background: lightgray;
-
-
-    margin-bottom: 30px;
-    position: relative;
+    background: #f7f7f7;
     border-width: 1px;
     border-color: #373737;
     border-style: solid;
 }
 
-#right-menu {
-    float: none; 
+
+.tabs {
+    margin-left: auto;
+    margin-right: auto;
 }
-#right-menu li {
-    display: inline-block;
-    margin-right: 30px;
+
+.tabs>input[type="radio"] {
+    display: none;
 }
-#right-menu a {
-    color: red;
+
+.tabs>input[type="radio"]:checked+label {
+    background-color: #448196;
+    color:  #ccd7d3;
+}
+
+.tabs>div {
+    display: none;
+    border: 1px solid #ccd7d3;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+/* отобразить контент, связанный с вабранной радиокнопкой (input type="radio") */
+#lm1:checked~#content-1,
+#lm2:checked~#content-2,
+#rm1:checked~#content-3 {
     display: block;
-    font-size: 15px;
 }
-#right-menu li:last-child {
-    margin-right: 0;
+
+
+.tabs>label {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #ccd7d1;
+    border: 1px solid transparent;
+    padding: 2px 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 4px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    margin-left: 6px;
 }
+
+.tabs>label:first-of-type {
+    margin-left: 0;
+}
+
+#post-delimeter {
+    color:#373737;
+    display: block;
+    line-height: 18px;
+    font-size: 11px;
+    border-width: 1px;
+    border-color: #373737;
+    border-style: solid;
+    padding: 1px;
+ }

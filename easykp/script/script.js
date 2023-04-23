@@ -1,9 +1,10 @@
 var activeMM;
 var activeOM;
 var activeLM;
+var activeRM;
 
 function  activeMenuPath(){
-    console.log(activeMM+"/"+activeOM+"/"+activeLM)
+    console.log(activeMM+"/"+activeOM+"/"+activeLM+"/"+activeRM)
 }
 
 
@@ -19,5 +20,10 @@ function activeObjectMenu(id) {
 
 function activeLeftMenu(id) {
     activeLM = id;
+    activeMenuPath()
+}
+
+function activeRightMenu(id) {
+    activeRM = id;
     activeMenuPath()
 }

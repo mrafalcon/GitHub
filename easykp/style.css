@@ -145,7 +145,7 @@ header{
 }
 
 
-container {
+#container {
     margin: 0 auto;
     width: 100%;
 }
@@ -155,11 +155,31 @@ container {
     float: left;
     background: lightcyan;
 }
-.containerheader {
+#left-menu {
+    float: none;
+    margin: 0 auto;
+    display: table;
+}
+#left-menu li {
+    display: inline-block;
+    margin-right: 30px;
+}
+#left-menu a {
+    color: red;
+    display: block;
+    font-size: 15px;
+    text-align: center;
+}
+#left-menu li:last-child {
+    margin-right: 0;
+}
+
+
+.leftheader {
     width: 100%;
     background: lightgray;
     box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
-    padding: 15px 15px;
+
     margin-bottom: 30px;
     position: relative;
     border-width: 1px;
@@ -172,4 +192,32 @@ container {
     width: 70%;
     float: right;
     background: lightblue;
+}
+
+.rightheader {
+    width: 100%;
+    background: lightgray;
+
+
+    margin-bottom: 30px;
+    position: relative;
+    border-width: 1px;
+    border-color: #373737;
+    border-style: solid;
+}
+
+#right-menu {
+    float: none; 
+}
+#right-menu li {
+    display: inline-block;
+    margin-right: 30px;
+}
+#right-menu a {
+    color: red;
+    display: block;
+    font-size: 15px;
+}
+#right-menu li:last-child {
+    margin-right: 0;
 }

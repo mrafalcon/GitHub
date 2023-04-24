@@ -84,3 +84,20 @@ function searchContent(input, column) {
   };
   document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc);
 }
+
+function resetContent() {
+  countRowsDocumentsForDiadoc = 0;
+  // Объявить переменные
+  var filter, table, tr, td, i;
+  table = document.getElementById("documentsfordiadoc");
+  tr = table.getElementsByTagName("tr");
+
+  // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+        tr[i].style.display = "";
+      }
+    };
+  document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1);
+}

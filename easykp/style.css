@@ -296,7 +296,7 @@ delimeterempty2 {
 .table th {
 	padding: 5px;
 	background: #448196;
-    color: white;
+    color: #fff;
     word-wrap:break-word;
 }
 .table td{
@@ -305,9 +305,9 @@ delimeterempty2 {
     word-wrap:break-word;
     text-align: left;
 }
-.table tbody tr:nth-child(odd){
+.table tbody tr:nth-child(){
 	background: #fff;
 }
-.table tbody tr:nth-child(even){
+.table tbody tr:hover{
 	background: #d2e4eb;
 }

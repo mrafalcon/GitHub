@@ -77,23 +77,23 @@
             </div></form>
             </form>
             <delimeter></delimeter> 
-                <label id="status-1" class="check-button">Простой доходный документ</label>
+                <label id="status-1" class="check-button" onclick="searchContent('доходный')">Простой доходный документ</label>
             <delimeterempty id="ds11">
             <form  class="check-button" id="formstatus1">
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd1" name="statusdescriptin" class="check-button">Готово к отправке</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd2" name="statusdescriptin" class="check-button">Черновик</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd3" name="statusdescriptin" class="check-button">Ожидает подписи отправителя</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd4" name="statusdescriptin" class="check-button">Ожидает подписи контрагента</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd5" name="statusdescriptin" class="check-button">Подписано контрагентов (подписано обеими сторонами)</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd6" name="statusdescriptin" class="check-button">Отказано в подписи контрагентом</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd7" name="statusdescriptin" class="check-button">Запрошено аннулирование</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd8" name="statusdescriptin" class="check-button">Отказано в подписи отправителем</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd9" name="statusdescriptin" class="check-button">Получено из Диадока</label>
-                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd10" name="statusdescriptin" class="check-button">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
+                        <label for="statusdescriptin" class="check-button">Готово к отправке</label>
+                        <label for="statusdescriptin" class="check-button">Черновик</label>
+                        <label for="statusdescriptin" class="check-button">Ожидает подписи отправителя</label>
+                        <label for="statusdescriptin" class="check-button">Ожидает подписи контрагента</label>
+                        <label for="statusdescriptin" class="check-button">Подписано контрагентов (подписано обеими сторонами)</label>
+                        <label for="statusdescriptin" class="check-button">Отказано в подписи контрагентом</label>
+                        <label for="statusdescriptin" class="check-button">Запрошено аннулирование</label>
+                        <label for="statusdescriptin" class="check-button">Отказано в подписи отправителем</label>
+                        <label for="statusdescriptin" class="check-button">Получено из Диадока</label>
+                        <label for="statusdescriptin" class="check-button">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
             </form>
             </delimeterempty>
             <delimeterempty2 id="ds12"></delimeterempty2> 
-                <label id="status-2" class="check-button" style="display: none;">Простой расходный документ</label>
+                <label id="status-2" class="check-button" style="display: none;" onclick="searchContent('расходный')">Простой расходный документ</label>
             <delimeterempty> 
             <form  class="check-button" id="formstatus2" style="display: none;">
                 <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusr1" name="statusdescriptin" class="check-button">Готово к отправке</label>
@@ -130,7 +130,9 @@
             </div>
 
             <delimeter2></delimeter2>
+            
             <p style="font-style: italic;" id="countrows">Общее число строк в отчете - </p>
+<!--            <input type="text" id="myInput" onkeyup="searchContent()" placeholder="Поиск имен.."> -->
             <table class="table" id="documentsfordiadoc">
                 <thead>
                     <tr>
@@ -202,10 +204,6 @@
                 </tbody>
             </table>
         </div>
-        
-
-
-
 
     </container>
 

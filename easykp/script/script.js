@@ -86,6 +86,7 @@ function searchContent(input, column) {
   if ((document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc) <= 0 ) {
     document.getElementById("documentsfordiadoc").style.display = "none";
     document.getElementById("nofoundDocs").style.display = "block";
+    document.getElementById("countrows").innerHTML = "";
   } else {
     document.getElementById("documentsfordiadoc").style.display = "block";
     document.getElementById("nofoundDocs").style.display = "none";
@@ -118,6 +119,7 @@ function emptySearchContent() {
   } else  if ((document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc) <= 0 ) {
     document.getElementById("documentsfordiadoc").style.display = "none";
     document.getElementById("nofoundDocs").style.display = "block";
+    document.getElementById("countrows").innerHTML = "";
   } else {
     document.getElementById("documentsfordiadoc").style.display = "block";
     document.getElementById("nofoundDocs").style.display = "none";

@@ -41,10 +41,12 @@ header{
     border-bottom-style: solid;
     border-bottom-width: 2px;
     border-color: #ffffff;
+
 }
 .logo {
     display: block;
     float: left;
+    width: 30%;
 }
 .img{
     position: absolute; 
@@ -59,6 +61,12 @@ header{
     top:25px;
     font-size: 21px;
     color: #ccd7d3;
+}
+
+.topmenu {
+    display: block;
+    max-width: 70%;
+    float: right;
 }
 
 
@@ -152,32 +160,31 @@ header{
 }
 
 .leftside {
-    width: 30%;
+    width: 25%;
     float: left;
+    position: fixed;
     background: #f7f7f7;
-    border-width: 1px;
-    border-color: #373737;
-    border-style: solid;
+
+    
 }
 
 
 
 .containerheader {
-    width: 100%;
+    width: 90%;
     background: #f7f7f7;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     position: relative;
 
 }
 
 
 .rightside {
-    width: 70%;
+    width: 75%;
     float: right;
     background: #f7f7f7;
-    border-width: 1px;
-    border-color: #373737;
-    border-style: solid;
+    padding-left: 20px;
+
 }
 
 
@@ -203,9 +210,13 @@ header{
 }
 
 /* отобразить контент, связанный с вабранной радиокнопкой (input type="radio") */
-#lm1:checked~#content-1,
-#lm2:checked~#content-2,
-#rm1:checked~#content-3 {
+#lm1:checked~#status-1,
+#lm2:checked~#status-2,
+#tab1:checked~#content-1,
+#tab2:checked~#content-2,
+#tab3:checked~#content-3,
+#tab4:checked~#content-4,
+#tab5:checked~#content-5 {
     display: block;
 }
 
@@ -223,19 +234,83 @@ header{
     border-radius: 4px;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     margin-left: 6px;
+    cursor: pointer;
 }
 
 .tabs>label:first-of-type {
     margin-left: 0;
 }
 
-#post-delimeter {
-    color:#373737;
+delimeter {
+    color: #448196;
     display: block;
-    line-height: 18px;
-    font-size: 11px;
-    border-width: 1px;
-    border-color: #373737;
-    border-style: solid;
-    padding: 1px;
- }
+    height: 1px;
+    border-bottom: 1px solid #448196;
+    padding-bottom : 10px;
+    margin-bottom: 1px;
+}
+delimeter2 {
+    color: #448196;
+    display: block;
+    height: 1px;
+    padding-bottom : 10px;
+    margin-bottom: 1px;
+}
+delimeter3 {
+    color: #448196;
+    display: block;
+    height: 2px;
+    border-top: 2px solid  #448196;
+    padding-top : 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+
+delimeterempty {
+    display: block;
+    margin: 1em 0;
+    padding: 10px;
+}
+delimeterempty2 {
+    display: block;
+    padding: 10px;
+}
+
+.check-button {
+    clear: left;
+    float: left;
+    padding: 2px;
+    font-size: 12px;
+}
+
+.table{
+    display: block;
+	width: 100%;
+	margin-bottom: 20px;
+    overflow: scroll;
+
+}
+
+table tbody {
+    display: table;
+    width: 100%;
+}
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #448196;
+    color: white;
+}
+.table td{
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	text-align: left;
+    word-wrap:break-word
+}
+.table tbody tr:nth-child(odd){
+	background: #fff;
+}
+.table tbody tr:nth-child(even){
+	background:  #448196;
+}

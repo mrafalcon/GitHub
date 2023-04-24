@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="script/script.js"></script>
         <script src="script/jquery.js"></script>
+        <script src="script/readtxt.js"></script>
 
     </head>
 
@@ -20,66 +21,142 @@
                 <h4>ЕАСУКП</h4>
             </div>
         </div>
-        <ul id="main-menu">
-            <li><a href="#" id="mm1" onclick="activeMainMenu(this.id)">ОБЪЕКТЫ</a></li>
-            <li><a href="#" id="mm2" onclick="activeMainMenu(this.id)">ПОЛЬЗОВАТЕЛЬ</a></li>
-            <li><a href="#" id="mm3" onclick="activeMainMenu(this.id)">ПРОФИЛЬ</a></li>
-            <li><a href="#" id="mm4" onclick="activeMainMenu(this.id)">СПРАВОЧНИКИ</a></li>
-            <li><a href="#" id="mm5" onclick="activeMainMenu(this.id)">ВЫХОД</a></li>
-        </ul>
-        <ul id="object-menu">
-            <li><a href="#" id="om1" onclick="activeObjectMenu(this.id)">ОПЕР.</a></li>
-            <li><a href="#" id="om2" onclick="activeObjectMenu(this.id)">ОПЕР.Интеграция</a></li>
-            <li><a href="#" id="om3" onclick="activeObjectMenu(this.id)">МОИ ДОКУМЕНТЫ</a></li>
-            <li><a href="#" id="om4" onclick="activeObjectMenu(this.id)">ОПЕР.Диадок</a></li>
-            <li><a href="#" id="om5" onclick="activeObjectMenu(this.id)">ЗАДАНИЯ</a></li>
-            <li><a href="#" id="om6" onclick="activeObjectMenu(this.id)">ДОГОВОРЫ</a></li>
-            <li><a href="#" id="om7" onclick="activeObjectMenu(this.id)">КОНКУРС</a></li>
-            <li><a href="#" id="om8" onclick="activeObjectMenu(this.id)">ЗАКУПКИ</a></li>
-            <li><a href="#" id="om9" onclick="activeObjectMenu(this.id)">ОТЧЕТЫ</a></li>
-            <li><a href="#" id="om10" onclick="activeObjectMenu(this.id)">Б. ПОИСК</a></li>
-            <li><a href="#" id="om11" onclick="activeObjectMenu(this.id)">ПОИСК</a></li>
-            <li><a href="#" id="om12" onclick="activeObjectMenu(this.id)">СЧЕТА</a></li>
-            <li><a href="#" id="om13" onclick="activeObjectMenu(this.id)">АВТОМАТИЗАЦИЯ</a></li>
-            <li><a href="#" id="om14" onclick="activeObjectMenu(this.id)">ПРОИЗВОДСТВО</a></li>
-        </ul>
+        <div class="topmenu">
+            <ul id="main-menu">
+                <li><a href="#" id="mm1" onclick="activeMainMenu(this.id)">ОБЪЕКТЫ</a></li>
+                <li><a href="#" id="mm2" onclick="activeMainMenu(this.id)">ПОЛЬЗОВАТЕЛЬ</a></li>
+                <li><a href="#" id="mm3" onclick="activeMainMenu(this.id)">ПРОФИЛЬ</a></li>
+                <li><a href="#" id="mm4" onclick="activeMainMenu(this.id)">СПРАВОЧНИКИ</a></li>
+                <li><a href="#" id="mm5" onclick="activeMainMenu(this.id)">ВЫХОД</a></li>
+            </ul>
+            <ul id="object-menu">
+                <li><a href="#" id="om1" onclick="activeObjectMenu(this.id)">ОПЕР.</a></li>
+                <li><a href="#" id="om2" onclick="activeObjectMenu(this.id)">ОПЕР.Интеграция</a></li>
+                <li><a href="#" id="om3" onclick="activeObjectMenu(this.id)">МОИ ДОКУМЕНТЫ</a></li>
+                <li><a href="#" id="om4" onclick="activeObjectMenu(this.id)">ОПЕР.Диадок</a></li>
+                <li><a href="#" id="om5" onclick="activeObjectMenu(this.id)">ЗАДАНИЯ</a></li>
+                <li><a href="#" id="om6" onclick="activeObjectMenu(this.id)">ДОГОВОРЫ</a></li>
+                <li><a href="#" id="om7" onclick="activeObjectMenu(this.id)">КОНКУРС</a></li>
+                <li><a href="#" id="om8" onclick="activeObjectMenu(this.id)">ЗАКУПКИ</a></li>
+                <li><a href="#" id="om9" onclick="activeObjectMenu(this.id)">ОТЧЕТЫ</a></li>
+                <li><a href="#" id="om10" onclick="activeObjectMenu(this.id)">Б. ПОИСК</a></li>
+                <li><a href="#" id="om11" onclick="activeObjectMenu(this.id)">ПОИСК</a></li>
+                <li><a href="#" id="om12" onclick="activeObjectMenu(this.id)">СЧЕТА</a></li>
+                <li><a href="#" id="om13" onclick="activeObjectMenu(this.id)">АВТОМАТИЗАЦИЯ</a></li>
+                <li><a href="#" id="om14" onclick="activeObjectMenu(this.id)">ПРОИЗВОДСТВО</a></li>
+            </ul>
+        </div>
 
     </header>
 
     <container> 
         <div class="leftside">
+            <delimeter2></delimeter2>
             <div class="containerheader">
                 <div class="tabs">
-                    <input type="radio" name="lm" id="lm1" onclick="activeLeftMenu(this.id)" value="" checked>
+                    <input type="radio" name="lm" id="lm1" onclick="openStatus1()" value="" checked>
                     <label for="lm1">Доходные договоры/ДС</label>
-                    <input type="radio" name="lm" id="lm2" onclick="activeLeftMenu(this.id)" value="">
+                    <input type="radio" name="lm" id="lm2" onclick="openStatus2()" value="">
                     <label for="lm2">Расходные договоры/ДС</label>
                 </div>
             </div>
-            <div class="post-delimeter"></div>
-            <p> Период не учитывать</p>
-            <div class="post-delimeter"></div>
-            <p> Простой доходный договор</p>
-
+            <delimeter3></delimeter3>
+                <form>
+            <div>
+                <label for="dateperiod" style="font-size: 12px;">Период не учитывать</label>
+                <input type="checkbox" id="period" name="dateperiod" checked>
+                
+            </div>
+            <form><div><input type="date" id="start" name="period-start" onkeydown="return false">
+                <input type="button" value="📅">
+                <input type="reset" value="❌">
+                </div></form>
+                <form><div><input type="date" id="end" name="period-end" onkeydown="return false">
+                <input type="button" value="📅">
+                <input type="reset" value="❌">
+            </div></form>
+            </form>
+            <delimeter></delimeter> 
+                <label id="status-1" class="check-button">Простой доходный документ</label>
+            <delimeterempty id="ds11">
+            <form  class="check-button" id="formstatus1">
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd1" name="statusdescriptin" class="check-button">Готово к отправке</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd2" name="statusdescriptin" class="check-button">Черновик</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd3" name="statusdescriptin" class="check-button">Ожидает подписи отправителя</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd4" name="statusdescriptin" class="check-button">Ожидает подписи контрагента</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd5" name="statusdescriptin" class="check-button">Подписано контрагентов (подписано обеими сторонами)</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd6" name="statusdescriptin" class="check-button">Отказано в подписи контрагентом</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd7" name="statusdescriptin" class="check-button">Запрошено аннулирование</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd8" name="statusdescriptin" class="check-button">Отказано в подписи отправителем</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd9" name="statusdescriptin" class="check-button">Получено из Диадока</label>
+                        <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusd10" name="statusdescriptin" class="check-button">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
+            </form>
+            </delimeterempty>
+            <delimeterempty2 id="ds12"></delimeterempty2> 
+                <label id="status-2" class="check-button" style="display: none;">Простой расходный документ</label>
+            <delimeterempty> 
+            <form  class="check-button" id="formstatus2" style="display: none;">
+                <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusr1" name="statusdescriptin" class="check-button">Готово к отправке</label>
+                <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusr2" name="statusdescriptin" class="check-button">Черновик</label>
+            </form>
+            </delimeterempty>
         </div>
 
         <div class="rightside">
+            <delimeter2></delimeter2>
             <div class="containerheader">
                 <div class="tabs">
                     <input type="radio" name="rm" id="rm1" onclick="activeRightMenu(this.id)" value="" checked>
                     <label for="rm1">Документы Для Диадок</label>
                 </div>
             </div>
-            <div class="post-delimeter"></div>
-            <p> фильтр</p>
+            <delimeter3></delimeter3>
+            <div class="tabs">
+                <input type="radio" name="tab" id="tab1" value="" checked>
+                <label for="tab1">Фильтр</label>
+                <input type="radio" name="tab" id="tab2" value="">
+                <label for="tab2">Запрос</label>
+                <input type="radio" name="tab" id="tab3" value="">
+                <label for="tab3">Сброс</label>
+                <input type="radio" name="tab" id="tab4" value="">
+                <label for="tab4">В Excel</label>
+                <input type="radio" name="tab" id="tab5" value="">
+                <label for="tab5">Закрыть</label>
+                <div id="content-1">Поля вкладки фильтр</div>
+                <div id="content-2">Поля вкладки запрос</div>
+                <div id="content-3">Поля вкладки сброс</div>
+                <div id="content-4">Поля вкладки в excel</div>
+                <div id="content-5">Поля вкладки закрыть</div>
+            </div>
 
+            <delimeter2></delimeter2>
+            <table class="table" id="documentsfordiadoc">
+                <tr>
+                    <th>№</th>
+                    <th>Индетификационный номер</th>
+                    <th>Категория договора</th>
+                    <th>Документ</th>
+                    <th>Название вида договоров</th>
+                    <th>Организация заказчика</th>
+                    <th>Организация исполнителя</th>
+                    <th>Предмет договора</th>
+                    <th>Стадия</th>
+                    <th>Состояние</th>
+                    <th>Описание статуса</th>
+                    <th>Дата изменения статуса</th>
+                    <th>Дата начала действия договора</th>
+                    <th>Дата окончания действия договора</th>
+                </tr>
+            </table>
+
+            <input type="button" value="test.txt"  onclick="populateTable()" />
+            <div id="main">
+            </div>
         </div>
         
 
 
-    <div id="content-1"></div>
-    <div id="content-2"></div>
-    <div id="content-3"></div>
+
 
     </container>
 

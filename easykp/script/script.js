@@ -93,6 +93,8 @@ function searchContent(input, column) {
 }
 
 function resetContent() {
+  document.getElementById("documentsfordiadoc").style.display = "block";
+  document.getElementById("nofoundDocs").style.display = "none";
   countRowsDocumentsForDiadoc = 0;
   // Объявить переменные
   var filter, table, tr, td, i;

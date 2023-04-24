@@ -82,6 +82,5 @@ function searchContent(input, column) {
       };
     };
   };
-  console.log(countRowsDocumentsForDiadoc);
   document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc);
 }

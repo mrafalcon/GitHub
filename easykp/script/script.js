@@ -83,6 +83,13 @@ function searchContent(input, column) {
     };
   };
   document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc);
+  if ((document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc) <= 0 ) {
+    document.getElementById("documentsfordiadoc").style.display = "none";
+    document.getElementById("nofoundDocs").style.display = "block";
+  } else {
+    document.getElementById("documentsfordiadoc").style.display = "block";
+    document.getElementById("nofoundDocs").style.display = "none";
+  };
 }
 
 function resetContent() {
@@ -100,4 +107,17 @@ function resetContent() {
       }
     };
   document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1);
+}
+
+function emptySearchContent() {
+  if (countRowsDocumentsForDiadoc = 'undefined') {
+    document.getElementById("documentsfordiadoc").style.display = "block";
+    document.getElementById("nofoundDocs").style.display = "none";
+  } else  if ((document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc) <= 0 ) {
+    document.getElementById("documentsfordiadoc").style.display = "none";
+    document.getElementById("nofoundDocs").style.display = "block";
+  } else {
+    document.getElementById("documentsfordiadoc").style.display = "block";
+    document.getElementById("nofoundDocs").style.display = "none";
+  }
 }

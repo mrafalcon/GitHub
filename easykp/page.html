@@ -116,7 +116,7 @@
                 <label for="tab1">Фильтр</label>
                 <input type="radio" name="tab" id="tab2" value="">
                 <label for="tab2">Запрос</label>
-                <input type="radio" name="tab" id="tab3" value="" onclick="resetContent()">
+                <input type="radio" name="tab" id="tab3" value="">
                 <label for="tab3">Сброс</label>
                 <input type="radio" name="tab" id="tab4" value="">
                 <label for="tab4">В Excel</label>
@@ -124,7 +124,9 @@
                 <label for="tab5">Закрыть</label>
                 <div id="content-1">Поля вкладки фильтр</div>
                 <div id="content-2">Поля вкладки запрос</div>
-                <div id="content-3">Поля вкладки сброс</div>
+                <div id="content-3">Для отмены фильтра нажмите 
+                    <input type="button" value="❌" onclick="resetContent()">
+                </div>
                 <div id="content-4">Поля вкладки в excel</div>
                 <div id="content-5">Поля вкладки закрыть</div>
             </div>

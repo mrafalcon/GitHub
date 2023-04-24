@@ -11,7 +11,7 @@
 
     </head>
 
-    <body>
+    <body onload = "getCountRows();">
     <header>
         <div class="logo">
             <div class="img">
@@ -77,7 +77,7 @@
             </div></form>
             </form>
             <delimeter></delimeter> 
-                <label id="status-1" class="check-button" onclick="searchContent('доходный')">Простой доходный документ</label>
+                <label id="status-1" class="check-button" onclick="searchContent('доходный',2)">Простой доходный документ</label>
             <delimeterempty id="ds11">
             <form  class="check-button" id="formstatus1">
                         <label for="statusdescriptin" class="check-button">Готово к отправке</label>
@@ -93,7 +93,7 @@
             </form>
             </delimeterempty>
             <delimeterempty2 id="ds12"></delimeterempty2> 
-                <label id="status-2" class="check-button" style="display: none;" onclick="searchContent('расходный')">Простой расходный документ</label>
+                <label id="status-2" class="check-button" style="display: none;" onclick="searchContent('расходный',2)">Простой расходный документ</label>
             <delimeterempty> 
             <form  class="check-button" id="formstatus2" style="display: none;">
                 <label for="statusdescriptin" class="check-button"><input type="checkbox" id="statusr1" name="statusdescriptin" class="check-button">Готово к отправке</label>

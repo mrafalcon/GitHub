@@ -52,29 +52,36 @@ function openStatus2() {
 
 
 
-setInterval(function getCountRows() {
-    document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length -1);
-}, 1);
+function getCountRows() {
+  if (countRowsDocumentsForDiadoc = 'undefined') {
+    document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1);
+  } 
+};
 
+window.onload = getCountRows();
 
-
-function searchContent(input) {
+var countRowsDocumentsForDiadoc;
+function searchContent(input, column) {
+  countRowsDocumentsForDiadoc = 0;
   // Объявить переменные
-  var filter, table, tr, td, i, txtValue;
+  var filter, table, tr, td, i, txtValue, count=0;
   filter = input.toUpperCase();
   table = document.getElementById("documentsfordiadoc");
   tr = table.getElementsByTagName("tr");
 
   // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
+    td = tr[i].getElementsByTagName("td")[column];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
-      }
-    }
-  }
+        countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1;
+      };
+    };
+  };
+  console.log(countRowsDocumentsForDiadoc);
+  document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc);
 }

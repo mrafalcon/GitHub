@@ -65,16 +65,16 @@
                 <form>
             <div>
                 <label for="dateperiod" style="font-size: 12px;">Период не учитывать</label>
-                <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod()}">
+                <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod();searchContent()}">
                 
             </div>
-            <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false">
+            <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false" onchange="{changeDate();searchContent()}">
                 <input type="button" value="📅">
-                <input type="button" value="❌" onclick="setStartDate()">
+                <input type="button" value="❌" onclick="setStartDate();searchContent()">
                 </div></form>
-                <form><div><input type="date" id="dateend" name="period-end" onkeydown="return false">
+                <form><div><input type="date" id="dateend" name="period-end" onkeydown="return false" onchange="{changeDate();searchContent()}">
                 <input type="button" value="📅">
-                <input type="button" value="❌" onclick="setEndDate()">
+                <input type="button" value="❌" onclick="setEndDate();searchContent()">
             </div></form>
             </form>
             <delimeter></delimeter> 

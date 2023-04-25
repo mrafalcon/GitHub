@@ -110,6 +110,12 @@ function filterDoc(id) {
   status_type = null;
 }
 
+
+function changeDate() {
+  period_start = document.getElementById("datestart").value
+  period_end = document.getElementById("dateend").value
+}
+
 function setStartDate() {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
@@ -125,7 +131,7 @@ function setEndDate() {
   var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
   var yyyy = today.getFullYear();
   document.getElementById("dateend").value = yyyy + '-' + mm + '-' + dd;
-  period_start = document.getElementById("dateend").value
+  period_end = document.getElementById("dateend").value
 }
 
 function filterDate() {

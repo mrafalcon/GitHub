@@ -166,6 +166,7 @@ function filterStatus(id) {
 
 var countRowsDocumentsForDiadoc;
 function searchContent() {
+
   var start, end, count1, count2;
   countRowsDocumentsForDiadoc = 0;
   count1 = 0;

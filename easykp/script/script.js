@@ -166,11 +166,11 @@ function filterStatus(id) {
 
 var countRowsDocumentsForDiadoc;
 function searchContent() {
+  filterDate();
 
   var start, end, count1, count2;
   countRowsDocumentsForDiadoc = 0;
   count1 = 0;
-  // Объявить переменные
   var table, tr;
   table = document.getElementById("documentsfordiadoc");
   tr = table.getElementsByTagName("tr");

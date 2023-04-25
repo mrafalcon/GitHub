@@ -105,6 +105,7 @@ function filterDoc(id) {
 }
 
 function filterDate() {
+  getMenuElement();
   if (document.getElementById('period').checked) {
     period_start = '1900-01-01';
     period_end = '3999-12-31'
@@ -115,12 +116,14 @@ function filterDate() {
 }
 
 function filterStatus(id) {
+  getMenuElement();
   for (i=0; i < menu_status1.length; i++ ) {
     if (menu_status1[i].indexOf(id) > -1){
       filterDoc("doctype-1")
     }
   };
-    for (i=0; i < menu_status2.length; i++ ) {if (menu_status2[i].indexOf(id) > -1){
+  for (i=0; i < menu_status2.length; i++ ) {
+    if (menu_status2[i].indexOf(id) > -1){
       filterDoc("doctype-2")
     }
   };

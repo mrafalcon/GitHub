@@ -161,6 +161,7 @@ flex-direction: row;
     width: 100%; /*Optional*/
     table-layout: fixed; /*Optional*/
     border-spacing: 10px;
+    height: 50vh;
 }
 
 .leftside {
@@ -307,7 +308,7 @@ delimeterempty2 {
 
 .table{
     display: block;
-	width: 100%;
+	width: 70vw;
 	margin-bottom: 20px;
     overflow: scroll;
     font-size: 12px;

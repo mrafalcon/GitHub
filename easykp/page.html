@@ -122,20 +122,19 @@
             </div>
             <delimeter3></delimeter3>
             <div class="tabs">
-                <input type="radio" name="tab" id="tab1" value="" checked>
+                <input type="radio" name="tab" id="tab1" value="Фильтр" checked >
                 <label for="tab1">Фильтр</label>
-                <input type="radio" name="tab" id="tab2" value="">
+                <input type="radio" name="tab" id="tab2" value="Запрос">
                 <label for="tab2">Запрос</label>
-                <input type="radio" name="tab" id="tab3" value="">
-                <label for="tab3">Сброс</label>
-                <input type="radio" name="tab" id="tab4" value="">
+                <input type="radio" name="tab" id="tab3" value="Сброс" onclick="{resetContent();}">
+                <label for="tab3" >Сброс</label>
+                <input type="radio" name="tab" id="tab4" value="В Excel">
                 <label for="tab4">В Excel</label>
-                <input type="radio" name="tab" id="tab5" value="">
+                <input type="radio" name="tab" id="tab5" value="Закрыть" > 
                 <label for="tab5">Закрыть</label>
                 <div id="content-1">Поля вкладки фильтр</div>
                 <div id="content-2">Поля вкладки запрос</div>
-                <div id="content-3">Для отмены фильтра нажмите 
-                    <input type="button" value="❌" onclick="resetContent()">
+                <div id="content-3">Очистка фильтра
                 </div>
                 <div id="content-4">Поля вкладки в excel</div>
                 <div id="content-5">Поля вкладки закрыть</div>
@@ -200,7 +199,7 @@
                     <tr>
                         <td>3</td>
                         <td>555027</td>
-                        <td>Сложный доходный договор</td>
+                        <td>Простой расходный договор</td>
                         <td>Договор</td>
                         <td>КС</td>
                         <td>Мскжелдорпроек</td>

@@ -35,6 +35,28 @@ function activeRightMenu(id) {
     activeMenuPath()
 }
 
+function changeDate() {
+  period_start = document.getElementById("datestart").value
+  period_end = document.getElementById("dateend").value
+}
+
+function setStartDate() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  document.getElementById("datestart").value = yyyy + '-01-01';
+  period_start = document.getElementById("datestart").value
+}
+
+function setEndDate() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  document.getElementById("dateend").value = yyyy + '-' + mm + '-' + dd;
+  period_end = document.getElementById("dateend").value
+}
 
 
 function openStatus1() {
@@ -104,30 +126,6 @@ function filterDoc(id) {
       document.getElementById(menu_status[i]).style.color = '#373737';
   }
   status_type = null;
-}
-
-
-function changeDate() {
-  period_start = document.getElementById("datestart").value
-  period_end = document.getElementById("dateend").value
-}
-
-function setStartDate() {
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-  document.getElementById("datestart").value = yyyy + '-01-01';
-  period_start = document.getElementById("datestart").value
-}
-
-function setEndDate() {
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-  document.getElementById("dateend").value = yyyy + '-' + mm + '-' + dd;
-  period_end = document.getElementById("dateend").value
 }
 
 function filterDate() {
@@ -334,6 +332,7 @@ function resetContent() {
   for (i=0; i < menu_status.length; i++ ) {
       document.getElementById(menu_status[i]).style.color = '#373737';
   }
+  document.getElementById("period").checked = false;
   searchContent();
 }
 

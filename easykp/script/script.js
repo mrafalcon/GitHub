@@ -11,7 +11,7 @@ function changeDatePeriod() {
 
 
 function  activeMenuPath(){
-    console.log(activeMM+"/"+activeOM+"/"+activeLM+"/"+activeRM)
+    
 }
 
 
@@ -92,11 +92,7 @@ for (i=0; i < menu_all.length; i++ ) {
 var period_start, period_end, doc_type, status_type;
 function filterDoc(id) {
   getMenuElement();
-  if (id == "doctype-1") {
-    doc_type = "Простой доходный документ";
-  } else if (id == "doctype-2") {
-    doc_type = "Простой расходный документ";
-  }
+  doc_type = document.getElementById(id).innerHTML;
   for (i=0; i < menu_doc.length; i++ ) {
     if( menu_doc[i] === id) {
       document.getElementById(menu_doc[i]).style.color = 'blue'; 
@@ -157,14 +153,8 @@ function filterStatus(id) {
       filterDoc("doctype-2")
     }
   };
-  if (id == "status-1-1") {
-    status_type = "Готово к отправке";
-  } else if (id == "status-1-2") {
-    status_type = "Черновик";
-  }
-  else if (id == "status-2-1") {
-    status_type = "Готово к получению";
-  }
+  status_type = document.getElementById(id).innerHTML;
+ 
   for (i=0; i < menu_status.length; i++ ) {
     if( menu_status[i] === id) {
       document.getElementById(menu_status[i]).style.color = 'blue'; 
@@ -182,10 +172,9 @@ function searchContent() {
   countRowsDocumentsForDiadoc = 0;
   count1 = 0;
   // Объявить переменные
-  var filter, table, tr, td1, td2, i,txtValue10, txtValue11, txtValue2, count=0;
+  var table, tr;
   table = document.getElementById("documentsfordiadoc");
   tr = table.getElementsByTagName("tr");
-  console.log('new');
 
   // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
   for (i = 0; i < tr.length; i++) {
@@ -213,14 +202,14 @@ function searchContent() {
                         
                         if(true) {                          
                           if(tr[i].getElementsByTagName("td")[10].textContent.toUpperCase().indexOf(status_type.toUpperCase()) > -1 ){ 
-                            console.log(i+' ' +'period+doc+status'); 
+                            
                             tr[i].style.display = ""; 
-                            count1 = count + 1;
-                            tr[i].getElementsByTagName("td")[0].textContent = count1;
+                            count1 = count1 + 1;
+                            tr[i].getElementsByTagName("td")[0].innerHTML = count1;
                             
 
                           } else {
-                            console.log('not status_type');
+                            
                             tr[i].style.display = "none";
                             countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
                           }
@@ -229,15 +218,15 @@ function searchContent() {
                       }
 
                     } else {
-                      console.log(i+' ' +'null status');
+                     
                       tr[i].style.display = "";
-                      count1 = count + 1;
-                      tr[i].getElementsByTagName("td")[0].textContent = count1;
+                      count1 = count1 + 1;
+                      tr[i].getElementsByTagName("td")[0].innerHTML = count1;
                       
                     }
 
                   } else {
-                    console.log(i+' ' +'not doc_type');
+                    
                     tr[i].style.display = "none";
                     countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
                   }
@@ -246,10 +235,10 @@ function searchContent() {
               }
 
             } else {
-              console.log(i+' ' +'null doc');
+              
               tr[i].style.display = "";
-              count1 = count + 1;
-               tr[i].getElementsByTagName("td")[0].textContent = count1;
+              count1 = count1 + 1;
+              tr[i].getElementsByTagName("td")[0].innerHTML = count1;
             }
 
           } else {
@@ -269,10 +258,12 @@ function searchContent() {
                         
                         if(true) {                          
                           if(tr[i].getElementsByTagName("td")[10].textContent.toUpperCase().indexOf(status_type.toUpperCase()) > -1 ){ 
-                            console.log(i+' ' +'period+doc+status'); tr[i].style.display = ""; 
+                            
+                            count1 = count1 + 1;
+                            tr[i].getElementsByTagName("td")[0].innerHTML = count1; 
 
                           } else {
-                            console.log('not status_type');
+                            
                             tr[i].style.display = "none";
                             countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
                           }
@@ -281,13 +272,15 @@ function searchContent() {
                       }
 
                     } else {
-                      console.log(i+' ' +'null status');
+                     
                       tr[i].style.display = "";
+                      count1 = count1 + 1;
+                      tr[i].getElementsByTagName("td")[0].innerHTML = count1;
                       
                     }
 
                   } else {
-                    console.log(i+' ' +'not doc_type');
+                    
                     tr[i].style.display = "none";
                     countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
                   }
@@ -296,12 +289,15 @@ function searchContent() {
               }
 
             } else {
-              console.log(i+' ' +'null doc');
+              
               tr[i].style.display = "";
+              count1 = count1 + 1;
+              
+              tr[i].getElementsByTagName("td")[0].innerHTML = count1;
             }
 
           } else {
-            console.log(i+' ' +'not period');
+            
             tr[i].style.display = "none";
             countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
           }

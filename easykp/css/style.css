@@ -311,6 +311,7 @@ delimeterempty2 {
     overflow: scroll;
     font-size: 12px;
     text-align: left;
+    counter-reset: schetchik;
 
 }
 

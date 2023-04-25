@@ -181,7 +181,6 @@ function searchContent() {
   var start, end, count1, count2;
   countRowsDocumentsForDiadoc = 0;
   count1 = 0;
-  count2 = 0;
   // Объявить переменные
   var filter, table, tr, td1, td2, i,txtValue10, txtValue11, txtValue2, count=0;
   table = document.getElementById("documentsfordiadoc");
@@ -216,6 +215,9 @@ function searchContent() {
                           if(tr[i].getElementsByTagName("td")[10].textContent.toUpperCase().indexOf(status_type.toUpperCase()) > -1 ){ 
                             console.log(i+' ' +'period+doc+status'); 
                             tr[i].style.display = ""; 
+                            count1 = count + 1;
+                            tr[i].getElementsByTagName("td")[0].textContent = count1;
+                            
 
                           } else {
                             console.log('not status_type');
@@ -229,6 +231,8 @@ function searchContent() {
                     } else {
                       console.log(i+' ' +'null status');
                       tr[i].style.display = "";
+                      count1 = count + 1;
+                      tr[i].getElementsByTagName("td")[0].textContent = count1;
                       
                     }
 
@@ -244,6 +248,8 @@ function searchContent() {
             } else {
               console.log(i+' ' +'null doc');
               tr[i].style.display = "";
+              count1 = count + 1;
+               tr[i].getElementsByTagName("td")[0].textContent = count1;
             }
 
           } else {

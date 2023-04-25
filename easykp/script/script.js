@@ -3,6 +3,13 @@ var activeOM;
 var activeLM;
 var activeRM;
 
+
+function changeDatePeriod() {
+  if (document.getElementById("period").checked) searchContent();
+  else searchContent();
+}
+
+
 function  activeMenuPath(){
     console.log(activeMM+"/"+activeOM+"/"+activeLM+"/"+activeRM)
 }
@@ -51,7 +58,6 @@ function openStatus2() {
 }
 
 
-
 function getCountRows() {
   if (countRowsDocumentsForDiadoc = 'undefined') {
     document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1);
@@ -87,9 +93,9 @@ var period_start, period_end, doc_type, status_type;
 function filterDoc(id) {
   getMenuElement();
   if (id == "doctype-1") {
-    doc_type = 'Простой доходный документ';
+    doc_type = "Простой доходный документ";
   } else if (id == "doctype-2") {
-    doc_type = 'Простой расходный документ';
+    doc_type = "Простой расходный документ";
   }
   for (i=0; i < menu_doc.length; i++ ) {
     if( menu_doc[i] === id) {
@@ -101,7 +107,7 @@ function filterDoc(id) {
   for (i=0; i < menu_status.length; i++ ) {
       document.getElementById(menu_status[i]).style.color = '#373737';
   }
-  status_type = 'null';
+  status_type = null;
 }
 
 function setStartDate() {
@@ -146,12 +152,12 @@ function filterStatus(id) {
     }
   };
   if (id == "status-1-1") {
-    status_type = 'Готово к отправке';
+    status_type = "Готово к отправке";
   } else if (id == "status-1-2") {
-    status_type = 'Черновик';
+    status_type = "Черновик";
   }
   else if (id == "status-2-1") {
-    status_type = 'Готово к получению';
+    status_type = "Готово к получению";
   }
   for (i=0; i < menu_status.length; i++ ) {
     if( menu_status[i] === id) {
@@ -165,39 +171,137 @@ function filterStatus(id) {
 
 
 var countRowsDocumentsForDiadoc;
-function searchContent(column, input) {
+function searchContent() {
   var start, end, count1, count2;
-
-  console.log('start = '+start+' end = '+end );
   countRowsDocumentsForDiadoc = 0;
   count1 = 0;
   count2 = 0;
   // Объявить переменные
-  var filter, table, tr, td1, td2, i, txtValue1, txtValue2, count=0;
-  filter = input.toUpperCase();
+  var filter, table, tr, td1, td2, i,txtValue10, txtValue11, txtValue2, count=0;
   table = document.getElementById("documentsfordiadoc");
   tr = table.getElementsByTagName("tr");
+  console.log('new');
 
   // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
   for (i = 0; i < tr.length; i++) {
-    td1 = tr[i].getElementsByTagName("td")[column];
-    td2 = tr[i].getElementsByTagName("td")[11];
-    if (td1) {
-      txtValue1 = td1.textContent || td1.innerText;
-      txtValue2 = td2.textContent || td2.innerText;
-      console.log('textvalue2 = '+txtValue2);
-      if (txtValue2 >= start && txtValue2 <= end) {
-        if (txtValue1.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      }
-    } else {
-        tr[i].style.display = "none";
-        countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1;
-      };
-    };
-    };
-  
 
+    if (true) {
+
+      if(tr[i].getElementsByTagName("td")[11]) {
+        
+        if(true) {
+
+          date = tr[i].getElementsByTagName("td")[11].textContent.split('.');
+          if (document.getElementById("period").checked) {
+
+            if (doc_type != null) {
+              
+              if(tr[i].getElementsByTagName("td")[2]) {
+                
+                if(true) {
+                  
+                  if(tr[i].getElementsByTagName("td")[2].textContent.toUpperCase().indexOf(doc_type.toUpperCase()) > -1 ){
+                    
+                    if (status_type != null) {
+                      
+                      if(tr[i].getElementsByTagName("td")[10]) {
+                        
+                        if(true) {                          
+                          if(tr[i].getElementsByTagName("td")[10].textContent.toUpperCase().indexOf(status_type.toUpperCase()) > -1 ){ 
+                            console.log(i+' ' +'period+doc+status'); 
+                            tr[i].style.display = ""; 
+
+                          } else {
+                            console.log('not status_type');
+                            tr[i].style.display = "none";
+                            countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
+                          }
+                        }
+
+                      }
+
+                    } else {
+                      console.log(i+' ' +'null status');
+                      tr[i].style.display = "";
+                      
+                    }
+
+                  } else {
+                    console.log(i+' ' +'not doc_type');
+                    tr[i].style.display = "none";
+                    countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
+                  }
+
+                }
+              }
+
+            } else {
+              console.log(i+' ' +'null doc');
+              tr[i].style.display = "";
+            }
+
+          } else {
+          if(new Date(date[2]+'-'+date[1]+'-'+date[0]) >= new Date(period_start) && new Date(date[2]+'-'+date[1]+'-'+date[0]) <= new Date(period_end)) {
+            
+            if (doc_type != null) {
+              
+              if(tr[i].getElementsByTagName("td")[2]) {
+                
+                if(true) {
+                  
+                  if(tr[i].getElementsByTagName("td")[2].textContent.toUpperCase().indexOf(doc_type.toUpperCase()) > -1 ){
+                    
+                    if (status_type != null) {
+                      
+                      if(tr[i].getElementsByTagName("td")[10]) {
+                        
+                        if(true) {                          
+                          if(tr[i].getElementsByTagName("td")[10].textContent.toUpperCase().indexOf(status_type.toUpperCase()) > -1 ){ 
+                            console.log(i+' ' +'period+doc+status'); tr[i].style.display = ""; 
+
+                          } else {
+                            console.log('not status_type');
+                            tr[i].style.display = "none";
+                            countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
+                          }
+                        }
+
+                      }
+
+                    } else {
+                      console.log(i+' ' +'null status');
+                      tr[i].style.display = "";
+                      
+                    }
+
+                  } else {
+                    console.log(i+' ' +'not doc_type');
+                    tr[i].style.display = "none";
+                    countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
+                  }
+
+                }
+              }
+
+            } else {
+              console.log(i+' ' +'null doc');
+              tr[i].style.display = "";
+            }
+
+          } else {
+            console.log(i+' ' +'not period');
+            tr[i].style.display = "none";
+            countRowsDocumentsForDiadoc = countRowsDocumentsForDiadoc + 1 ;
+          }
+
+        }
+      }
+
+      }
+
+    }
+
+  }
   document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc);
   if ((document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc) <= 0 ) {
     document.getElementById("documentsfordiadoc").style.display = "none";
@@ -213,34 +317,19 @@ function resetContent() {
   document.getElementById("documentsfordiadoc").style.display = "block";
   document.getElementById("nofoundDocs").style.display = "none";
   countRowsDocumentsForDiadoc = 0;
-  // Объявить переменные
-  var filter, table, tr, td, i;
-  table = document.getElementById("documentsfordiadoc");
-  tr = table.getElementsByTagName("tr");
-
-  // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-        tr[i].style.display = "";
-      }
-    };
   document.getElementById("countrows").innerHTML = "Общее число строк в отчете - "+(document.getElementById("documentsfordiadoc").rows.length - 1);
+  status_type = null;
+  doc_type = null;
+  for (i=0; i < menu_doc.length; i++ ) {
+    document.getElementById(menu_doc[i]).style.color = '#373737';
+    }
+  for (i=0; i < menu_status.length; i++ ) {
+      document.getElementById(menu_status[i]).style.color = '#373737';
+  }
+  searchContent();
 }
 
-function emptySearchContent() {
-  if (countRowsDocumentsForDiadoc = 'undefined') {
-    document.getElementById("documentsfordiadoc").style.display = "block";
-    document.getElementById("nofoundDocs").style.display = "none";
-  } else  if ((document.getElementById("documentsfordiadoc").rows.length - 1 - countRowsDocumentsForDiadoc) <= 0 ) {
-    document.getElementById("documentsfordiadoc").style.display = "none";
-    document.getElementById("nofoundDocs").style.display = "block";
-    document.getElementById("countrows").innerHTML = "";
-  } else {
-    document.getElementById("documentsfordiadoc").style.display = "block";
-    document.getElementById("nofoundDocs").style.display = "none";
-  }
-}
+
 
 
 

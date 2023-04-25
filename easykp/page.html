@@ -5,15 +5,14 @@
         <title>РОСЖЕЛДОР ПРОЕКТ: ЕАСУКП</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/calendar.css">
+
         <script src="script/script.js"></script>
         <script src="script/jquery.js"></script>
         <script src="script/readtxt.js"></script>
-        <script src="script/calendar.js"></script>
 
     </head>
 
-    <body onload = "getCountRows();">
+    <body onload = "searchContent();">
     <header>
         <div class="logo">
             <div class="img">
@@ -66,7 +65,7 @@
                 <form>
             <div>
                 <label for="dateperiod" style="font-size: 12px;">Период не учитывать</label>
-                <input type="checkbox" id="period" name="dateperiod" onclick="filterDate()">
+                <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod()}">
                 
             </div>
             <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false">
@@ -79,27 +78,27 @@
             </div></form>
             </form>
             <delimeter></delimeter> 
-                <label id="doctype-1" class="check-button" style="display: block;" onclick="filterDoc(this.id)">Простой доходный документ</label>
+                <label id="doctype-1" class="check-button" style="display: block;" onclick="{filterDoc(this.id);searchContent()}">Простой доходный документ</label>
             <delimeterempty id="ds11">
             <form  class="check-button" id="formstatus1">
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-1">Готово к отправке</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-2">Черновик</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-3">Ожидает подписи отправителя</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-4">Ожидает подписи контрагента</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-5">Подписано контрагентов (подписано обеими сторонами)</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-6">Отказано в подписи контрагентом</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-7">Запрошено аннулирование</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-8">Отказано в подписи отправителем</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-9">Получено из Диадока</label>
-                        <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-1-10">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-1">Готово к отправке</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-2">Черновик</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-3">Ожидает подписи отправителя</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-4">Ожидает подписи контрагента</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-5">Подписано контрагентов (подписано обеими сторонами)</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-6">Отказано в подписи контрагентом</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-7">Запрошено аннулирование</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-8">Отказано в подписи отправителем</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-9">Получено из Диадока</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-10">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
             </form>
             </delimeterempty>
             <delimeterempty2 id="ds12"></delimeterempty2> 
-                <label id="doctype-2" class="check-button" style="display: none;" onclick="filterDoc(this.id)">Простой расходный документ</label>
+                <label id="doctype-2" class="check-button" style="display: none;" onclick="{filterDoc(this.id);searchContent()}">Простой расходный документ</label>
             <delimeterempty> 
             <form  class="check-button" id="formstatus2" style="display: none;">
-                <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-2-1">Готово к получению</label>
-                <label for="statusdescriptin" class="check-button" onclick="filterStatus(this.id)" id="status-2-2">Черновик</label>
+                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-1">Готово к получению</label>
+                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-2">Черновик</label>
             </form>
             </delimeterempty>
         </div>
@@ -218,6 +217,8 @@
   
     </body>
     <script>
+        var doc_type = null;
+        var status_type = null;
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
@@ -225,5 +226,7 @@
         document.getElementById("dateend").value = yyyy + '-' + mm + '-' + dd;
         document.getElementById("datestart").value = yyyy + '-01-01';
         filterDate()
+        searchContent() 
+
     </script>
 </html>

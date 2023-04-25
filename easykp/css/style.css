@@ -161,6 +161,7 @@ flex-direction: row;
     width: 100%; /*Optional*/
     table-layout: fixed; /*Optional*/
     border-spacing: 10px;
+    height: 500px;
 }
 
 .leftside {
@@ -309,7 +310,8 @@ delimeterempty2 {
     display: block;
 	width: 100%;
 	margin-bottom: 20px;
-    overflow: scroll;
+    overflow-y:scroll;
+    overflow-x:scroll;
     font-size: 12px;
     text-align: left;
     counter-reset: schetchik;

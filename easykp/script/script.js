@@ -336,8 +336,3 @@ function resetContent() {
   document.getElementById("period").checked = false;
   searchContent();
 }
-
-
-
-
-

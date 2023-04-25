@@ -175,6 +175,10 @@ function searchContent() {
   table = document.getElementById("documentsfordiadoc");
   tr = table.getElementsByTagName("tr");
 
+  for (i = 0; i < tr.length; i++) {
+    tr[i].style.display = "";
+  }
+
   // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
   for (i = 0; i < tr.length; i++) {
 

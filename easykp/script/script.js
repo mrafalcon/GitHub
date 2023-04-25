@@ -104,6 +104,24 @@ function filterDoc(id) {
   status_type = 'null';
 }
 
+function setStartDate() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  document.getElementById("datestart").value = yyyy + '-01-01';
+  period_start = document.getElementById("datestart").value
+}
+
+function setEndDate() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth()+1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  document.getElementById("dateend").value = yyyy + '-' + mm + '-' + dd;
+  period_start = document.getElementById("dateend").value
+}
+
 function filterDate() {
   getMenuElement();
   if (document.getElementById('period').checked) {
@@ -130,10 +148,10 @@ function filterStatus(id) {
   if (id == "status-1-1") {
     status_type = 'Готово к отправке';
   } else if (id == "status-1-2") {
-    status_type_type = 'Черновик';
+    status_type = 'Черновик';
   }
   else if (id == "status-2-1") {
-    status_type_type = 'Готово к получению';
+    status_type = 'Готово к получению';
   }
   for (i=0; i < menu_status.length; i++ ) {
     if( menu_status[i] === id) {

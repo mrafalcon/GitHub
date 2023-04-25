@@ -71,11 +71,11 @@
             </div>
             <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false">
                 <input type="button" value="📅">
-                <input type="reset" value="❌">
+                <input type="button" value="❌" onclick="setStartDate()">
                 </div></form>
                 <form><div><input type="date" id="dateend" name="period-end" onkeydown="return false">
                 <input type="button" value="📅">
-                <input type="reset" value="❌">
+                <input type="button" value="❌" onclick="setEndDate()">
             </div></form>
             </form>
             <delimeter></delimeter> 
@@ -224,6 +224,6 @@
         var yyyy = today.getFullYear();
         document.getElementById("dateend").value = yyyy + '-' + mm + '-' + dd;
         document.getElementById("datestart").value = yyyy + '-01-01';
-
+        filterDate()
     </script>
 </html>

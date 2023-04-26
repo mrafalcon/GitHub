@@ -188,7 +188,7 @@ function searchContent() {
         
         if(true) {
 
-          date = tr[i].getElementsByTagName("td")[11].textContent.split('.');
+          p_date = tr[i].getElementsByTagName("td")[11].textContent.split('.');
           if (document.getElementById("period").checked) {
 
             if (doc_type != null) {
@@ -245,7 +245,7 @@ function searchContent() {
             }
 
           } else {
-          if(new Date(date[2]+'-'+date[1]+'-'+date[0]) >= new Date(period_start) && new Date(date[2]+'-'+date[1]+'-'+date[0]) <= new Date(period_end)) {
+          if(new Date(p_date[2]+'-'+p_date[1]+'-'+p_date[0]) >= new Date(period_start) && new Date(p_date[2]+'-'+p_date[1]+'-'+p_date[0]) <= new Date(period_end)) {
             
             if (doc_type != null) {
               
@@ -338,5 +338,7 @@ function resetContent() {
       document.getElementById(menu_status[i]).style.color = '#373737';
   }
   document.getElementById("period").checked = false;
+  document.getElementById("lm2").checked = false;
+  document.getElementById("lm1").checked = true;
   searchContent();
 }

@@ -166,7 +166,8 @@ flex-direction: row;
 
 .leftside {
     display: table-cell;
-    width: 25vw;
+    width: fit-content;
+    min-width: 25vw;
 /*    float: left;*/
 
     background: #f7f7f7;
@@ -200,7 +201,7 @@ flex-direction: row;
 
 .rightside {
     display: table-cell;
-    width: 75vw;
+
 
     background: #f7f7f7;
     padding-left: 20px;
@@ -343,3 +344,8 @@ thead th {
     top: 0;
    
   }
+.doclink:hover {
+        color: blue;
+        text-decoration: underline;
+        cursor: pointer;
+}

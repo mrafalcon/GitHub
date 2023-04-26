@@ -587,7 +587,6 @@
           </div>
     </div>
 
-
   
     </body>
     <script>
@@ -636,7 +635,7 @@
             0
         ).getDay();
 
-        const nextDays = 7 - lastDayIndex;
+        const nextDays = 7 - lastDayIndex ;
 
         const months = [
             "Январь",
@@ -653,12 +652,12 @@
             "Декабрь",
         ];
 
-        document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+        document.querySelector(".date h1").innerHTML = months[date.getMonth()]+' '+date.getFullYear();
 
         let days = "";
 
         for (let x = firstDayIndex; x > 0; x--) {
-            days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+            days += `<div class="prev-date"></div>`;
         }
 
         for (let i = 1; i <= lastDay; i++) {
@@ -666,14 +665,14 @@
                 i === new Date().getDate() &&
                 date.getMonth() === new Date().getMonth()
             ) {
-                days += `<div class="today">${i}</div>`;
+                days += `<div onclick="getCalendarDate(${date.getFullYear()},${date.getMonth()+1},${i}})" >${i}</div>`;
             } else {
-                days += `<div>${i}</div>`;
+                days += `<div onclick="getCalendarDate(${date.getFullYear()},${date.getMonth()+1},${i})" >${i}</div>`;
             }
         }
 
         for (let j = 1; j <= nextDays; j++) {
-            days += `<div class="next-date">${j}</div>`;
+            days += `<div class="next-date"></div>`;
             monthDays.innerHTML = days;
             }
         };
@@ -691,4 +690,5 @@
         renderCalendar();
 
     </script>
+
 </html>

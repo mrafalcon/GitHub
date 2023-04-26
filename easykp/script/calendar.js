@@ -3,7 +3,10 @@ var calId;
 
 function hideMenu() {
     document.getElementById("contextMenu").style.display = "none";
+    document.getElementById("contextMenu2").style.display = "none";
     calId = null;
+    changeDate();
+    searchContent();
 }
 
 function calendarOff() {
@@ -20,7 +23,9 @@ function calendarOff() {
 function rightClick(id) {
 
     calId = id;
-    if (document.getElementById("contextMenu").style.display == "block" || document.getElementById("period").checked) {
+    if (document.getElementById("contextMenu").style.display == "block") {
+        hideMenu();
+    } else  if (document.getElementById("period").checked) {
         hideMenu();
     }
     else{
@@ -28,7 +33,15 @@ function rightClick(id) {
         document.getElementById("contextMenu").style.left = document.getElementById(id).offsetLeft + "px";
         document.getElementById("contextMenu").style.top = document.getElementById(id).offsetTop + 20 + "px";
     }
-
+    changeDate();
+    searchContent();
     
 }
 
+
+function getCalendarDate(yyyy,mm,dd) {
+    document.getElementById(calId).value = yyyy+'-'+String(mm).padStart(2, '0')+'-'+String(dd).padStart(2, '0');
+    changeDate();
+    searchContent();
+    hideMenu();
+}

@@ -207,6 +207,8 @@ function searchContent() {
                           if(tr[i].getElementsByTagName("td")[10].textContent.toUpperCase().indexOf(status_type.toUpperCase()) > -1 ){ 
                             
                             tr[i].style.display = ""; 
+                            tr[i].getElementsByTagName("td")[1].setAttribute('onclick','documentLink('+tr[i].getElementsByTagName("td")[1].textContent+')');
+                            tr[i].getElementsByTagName("td")[1].setAttribute('class','doclink');
                             count1 = count1 + 1;
                             tr[i].getElementsByTagName("td")[0].innerHTML = count1;
                             
@@ -223,6 +225,8 @@ function searchContent() {
                     } else {
                      
                       tr[i].style.display = "";
+                      tr[i].getElementsByTagName("td")[1].setAttribute('onclick','documentLink('+tr[i].getElementsByTagName("td")[1].textContent+')');
+                      tr[i].getElementsByTagName("td")[1].setAttribute('class','doclink');
                       count1 = count1 + 1;
                       tr[i].getElementsByTagName("td")[0].innerHTML = count1;
                       
@@ -240,6 +244,8 @@ function searchContent() {
             } else {
               
               tr[i].style.display = "";
+              tr[i].getElementsByTagName("td")[1].setAttribute('onclick','documentLink('+tr[i].getElementsByTagName("td")[1].textContent+')');
+              tr[i].getElementsByTagName("td")[1].setAttribute('class','doclink');
               count1 = count1 + 1;
               tr[i].getElementsByTagName("td")[0].innerHTML = count1;
             }
@@ -262,6 +268,9 @@ function searchContent() {
                         if(true) {                          
                           if(tr[i].getElementsByTagName("td")[10].textContent.toUpperCase().indexOf(status_type.toUpperCase()) > -1 ){ 
                             
+                            tr[i].style.display = "";
+                            tr[i].getElementsByTagName("td")[1].setAttribute('onclick','documentLink('+tr[i].getElementsByTagName("td")[1].textContent+')');
+                            tr[i].getElementsByTagName("td")[1].setAttribute('class','doclink');
                             count1 = count1 + 1;
                             tr[i].getElementsByTagName("td")[0].innerHTML = count1; 
 
@@ -277,6 +286,8 @@ function searchContent() {
                     } else {
                      
                       tr[i].style.display = "";
+                      tr[i].getElementsByTagName("td")[1].setAttribute('onclick','documentLink('+tr[i].getElementsByTagName("td")[1].textContent+')');
+                      tr[i].getElementsByTagName("td")[1].setAttribute('class','doclink');
                       count1 = count1 + 1;
                       tr[i].getElementsByTagName("td")[0].innerHTML = count1;
                       
@@ -294,6 +305,8 @@ function searchContent() {
             } else {
               
               tr[i].style.display = "";
+              tr[i].getElementsByTagName("td")[1].setAttribute('onclick','documentLink('+tr[i].getElementsByTagName("td")[1].textContent+')');
+              tr[i].getElementsByTagName("td")[1].setAttribute('class','doclink');
               count1 = count1 + 1;
               
               tr[i].getElementsByTagName("td")[0].innerHTML = count1;
@@ -341,4 +354,8 @@ function resetContent() {
   document.getElementById("lm2").checked = false;
   document.getElementById("lm1").checked = true;
   searchContent();
+}
+
+function documentLink(document) {
+  alert('Открытие документа '+document +' недоступно в данном режиме');
 }

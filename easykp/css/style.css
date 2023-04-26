@@ -201,7 +201,7 @@ flex-direction: row;
 
 .rightside {
     display: table-cell;
-
+    width: 75vw;
 
     background: #f7f7f7;
     padding-left: 20px;

@@ -67,16 +67,16 @@
                 <form>
             <div>
                 <label for="dateperiod" style="font-size: 12px;">Период не учитывать</label>
-                <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod();searchContent()}">
+                <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod();calendarOff();searchContent()}">
                 
             </div>
             <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false" onchange="{changeDate();searchContent()}">
-                <input type="button" value="📅" onclick="rightClick('datestart')">
-                <input type="button" value="❌" onclick="setStartDate();searchContent()">
+                <input type="button" value="📅" id="datestart_button_1" onclick="rightClick('datestart')">
+                <input type="button" value="❌" id="datestart_button_2" onclick="setStartDate();searchContent()">
                 </div></form>
                 <form><div><input type="date" id="dateend" name="period-end" onkeydown="return false" onchange="{changeDate();searchContent()}">
-                <input type="button" value="📅" onclick="rightClick('dateend')">
-                <input type="button" value="❌" onclick="setEndDate();searchContent()">
+                <input type="button" value="📅" id="dateend_button_1" onclick="rightClick('dateend')">
+                <input type="button" value="❌" id="dateend_button_2" onclick="setEndDate();searchContent()">
             </div></form>
             </form>
             <delimeter></delimeter> 
@@ -601,6 +601,11 @@
         document.getElementById("datestart").value = yyyy + '-01-01';
         filterDate();
         searchContent() ;
+
+        if (document.getElementById("period").checked = false) {
+        document.getElementById("datestart").style.color = '#373737';
+        document.getElementById("dateend").style.color = '#373737';
+}
     </script>
 
      <script>

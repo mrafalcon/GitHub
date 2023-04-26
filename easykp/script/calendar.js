@@ -6,9 +6,21 @@ function hideMenu() {
     calId = null;
 }
 
+function calendarOff() {
+    if (document.getElementById("period").checked) {
+    hideMenu();
+    document.getElementById("datestart").style.color = '#ccd7d3';
+    document.getElementById("dateend").style.color = '#ccd7d3';
+} else {
+    document.getElementById("datestart").style.color = '#373737';
+    document.getElementById("dateend").style.color = '#373737';
+}
+}
+
 function rightClick(id) {
+
     calId = id;
-    if (document.getElementById("contextMenu").style.display == "block") {
+    if (document.getElementById("contextMenu").style.display == "block" || document.getElementById("period").checked) {
         hideMenu();
     }
     else{

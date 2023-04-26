@@ -70,11 +70,11 @@
                 <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod();calendarOff();searchContent()}">
                 
             </div>
-            <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false" onchange="{changeDate();searchContent()}">
+            <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false" onchange="{changeDate();searchContent()} " onClick="event.preventDefault()">
                 <input type="button" value="📅" id="datestart_button_1" onclick="rightClick('datestart')">
                 <input type="button" value="❌" id="datestart_button_2" onclick="setStartDate();searchContent()">
                 </div></form>
-                <form><div><input type="date" id="dateend" name="period-end" onkeydown="return false" onchange="{changeDate();searchContent()}">
+                <form><div><input type="date" id="dateend" name="period-end" onkeydown="return false" onchange="{changeDate();searchContent()}" onClick="event.preventDefault()">
                 <input type="button" value="📅" id="dateend_button_1" onclick="rightClick('dateend')">
                 <input type="button" value="❌" id="dateend_button_2" onclick="setEndDate();searchContent()">
             </div></form>
@@ -661,14 +661,9 @@
         }
 
         for (let i = 1; i <= lastDay; i++) {
-            if (
-                i === new Date().getDate() &&
-                date.getMonth() === new Date().getMonth()
-            ) {
-                days += `<div onclick="getCalendarDate(${date.getFullYear()},${date.getMonth()+1},${i}})" >${i}</div>`;
-            } else {
+        
                 days += `<div onclick="getCalendarDate(${date.getFullYear()},${date.getMonth()+1},${i})" >${i}</div>`;
-            }
+           
         }
 
         for (let j = 1; j <= nextDays; j++) {

@@ -3,7 +3,6 @@ var calId;
 
 function hideMenu() {
     document.getElementById("contextMenu").style.display = "none";
-    document.getElementById("contextMenu2").style.display = "none";
     calId = null;
     changeDate();
     searchContent();

@@ -36,8 +36,12 @@ function activeRightMenu(id) {
 }
 
 function changeDate() {
-  period_start = document.getElementById("datestart").value
-  period_end = document.getElementById("dateend").value
+  var currstart = document.getElementById("datestart").value.split('-');
+  var currend = document.getElementById("dateend").value.split('-');
+  if (currstart[0] <= currend[0] &&  currstart[1] <= currend[1] && currstart[2] <= currend[2]) {
+  period_start = document.getElementById("datestart").value;
+  period_end = document.getElementById("dateend").value;
+}
 }
 
 function setStartDate() {

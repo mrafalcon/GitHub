@@ -36,7 +36,7 @@ body {
 }
 
 header{
-    height: 68px;
+    height: 70px;
     background-color: #448196;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -189,7 +189,7 @@ flex-direction: row;
     display: table-cell;
     color: #448196;
     width: 2px;
-    height: 100%;
+    height: calc(100vh - 70px);
     padding-left : 1px;
     padding-right : 1px;
     margin-left: 1px;

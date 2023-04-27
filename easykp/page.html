@@ -64,54 +64,63 @@
                 </div>
             </div>
             <delimeter3></delimeter3>
-                <form>
-            <div>
-                <label for="dateperiod" style="font-size: 12px;">Период не учитывать</label>
-                <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod();calendarOff();searchContent()}">
+            <form>   
+                <div>
+                    <div>
+                        <label for="dateperiod" style="font-size: 12px;">Период не учитывать</label>
+                        <input type="checkbox" id="period" name="dateperiod" onclick="{filterDate();changeDatePeriod();calendarOff();searchContent()}">
                 
-            </div>
-            <form><div><input type="date" id="datestart" name="period-start" onkeydown="return false" onchange="{changeDate();searchContent()} " onClick="event.preventDefault()">
-                <input type="button" value="📅" id="datestart_button_1" onclick="rightClick('datestart')">
-                <input type="button" value="❌" id="datestart_button_2" onclick="setStartDate();searchContent()">
-                </div></form>
-                <form><div><input type="date" id="dateend" name="period-end" onkeydown="return false" onchange="{changeDate();searchContent()}" onClick="event.preventDefault()">
-                <input type="button" value="📅" id="dateend_button_1" onclick="rightClick('dateend')">
-                <input type="button" value="❌" id="dateend_button_2" onclick="setEndDate();searchContent()">
-            </div></form>
-            </form>
-            <delimeter></delimeter> 
+                     </div>
+                    <div>
+                        <div>
+                            <input type="date" id="datestart" name="period-start" onkeydown="return false" onchange="{changeDate();searchContent()} " onClick="event.preventDefault()">
+                            <input type="button" value="📅" id="datestart_button_1" onclick="rightClick('datestart')">
+                            <input type="button" value="❌" id="datestart_button_2" onclick="setStartDate();searchContent()">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="date" id="dateend" name="period-end" onkeydown="return false" onchange="{changeDate();searchContent()}" onClick="event.preventDefault()">
+                            <input type="button" value="📅" id="dateend_button_1" onclick="rightClick('dateend')">
+                            <input type="button" value="❌" id="dateend_button_2" onclick="setEndDate();searchContent()">
+                        </div>
+                    </div>
+                </div>
+                <delimeter></delimeter> 
+            
                 <label id="doctype-1" class="check-button" style="display: block;" onclick="{filterDoc(this.id);searchContent()}">Простой доходный договор</label>
-            <delimeterempty id="ds11">
-            <form  class="check-button" id="formstatus1">
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-1">Готово к отправке</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-2">Черновик</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-3">Ожидает подписи отправителя</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-4">Ожидает подписи контрагента</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-5">Подписано контрагентов (подписано обеими сторонами)</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-6">Отказано в подписи контрагентом</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-7">Запрошено аннулирование</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-8">Отказано в подписи отправителем</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-9">Получено из Диадока</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-10">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
-            </form>
-            </delimeterempty>
-            <delimeterempty2 id="ds12"></delimeterempty2> 
+                <delimeterempty id="ds11">
+                    <div  class="check-button" id="formstatus1">
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-1">Готово к отправке</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-2">Черновик</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-3">Ожидает подписи отправителя</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-4">Ожидает подписи контрагента</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-5">Подписано контрагентов (подписано обеими сторонами)</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-6">Отказано в подписи контрагентом</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-7">Запрошено аннулирование</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-8">Отказано в подписи отправителем</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-9">Получено из Диадока</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-1-10">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
+                    </div>
+                </delimeterempty>
+                <delimeterempty2 id="ds12"></delimeterempty2> 
                 <label id="doctype-2" class="check-button" style="display: none;" onclick="{filterDoc(this.id);searchContent()}">Простой расходный договор</label>
-            <delimeterempty> 
-            <form  class="check-button" id="formstatus2" style="display: none;">
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-1">Готово к отправке</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-2">Черновик</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-3">Ожидает подписи отправителя</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-4">Ожидает подписи контрагента</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-5">Подписано контрагентов (подписано обеими сторонами)</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-6">Отказано в подписи контрагентом</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-7">Запрошено аннулирование</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-8">Отказано в подписи отправителем</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-9">Получено из Диадока</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-10">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
-                <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-11">Архив</label>               
-            </form>
-            </delimeterempty>
+                <delimeterempty> 
+                    <div  class="check-button" id="formstatus2" style="display: none;">
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-1">Готово к отправке</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-2">Черновик</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-3">Ожидает подписи отправителя</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-4">Ожидает подписи контрагента</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-5">Подписано контрагентов (подписано обеими сторонами)</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-6">Отказано в подписи контрагентом</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-7">Запрошено аннулирование</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-8">Отказано в подписи отправителем</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-9">Получено из Диадока</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-10">Несоответствие файлов пакета в Диадок и ЕАСУКП</label>
+                        <label for="statusdescriptin" class="check-button" onclick="{filterStatus(this.id);searchContent()}" id="status-2-11">Архив</label>               
+                    </div>
+                </delimeterempty>
+            </form>    
         </div>
         <div class="vertdelimeter2"></div>
         <div class="rightside">
@@ -124,20 +133,14 @@
             </div>
             <delimeter3></delimeter3>
             <div class="tabs">
-                <input type="radio" name="tab" id="tab1" value="Фильтр" checked >
-                <label for="tab1">Фильтр</label>
-                <input type="radio" name="tab" id="tab2" value="Запрос">
-                <label for="tab2">Запрос</label>
-                <input type="radio" name="tab" id="tab3" value="Сброс" onclick="{resetContent();}">
-                <label for="tab3" >Сброс</label>
-                <input type="radio" name="tab" id="tab4" value="В Excel">
-                <label for="tab4">В Excel</label>
-                <input type="radio" name="tab" id="tab5" value="Закрыть" > 
-                <label for="tab5">Закрыть</label>
+                <input type="radio" name="tab" id="tab1" value="Фильтр" checked ><label for="tab1">Фильтр</label>
+                <input type="radio" name="tab" id="tab2" value="Запрос"><label for="tab2">Запрос</label>
+                <input type="radio" name="tab" id="tab3" value="Сброс" onclick="{resetContent();}"><label for="tab3" >Сброс</label>
+                <input type="radio" name="tab" id="tab4" value="В Excel"><label for="tab4">В Excel</label>
+                <input type="radio" name="tab" id="tab5" value="Закрыть" ><label for="tab5">Закрыть</label>
                 <div id="content-1">Поля вкладки фильтр</div>
                 <div id="content-2">Поля вкладки запрос</div>
-                <div id="content-3">Очистка фильтра
-                </div>
+                <div id="content-3">Очистка фильтра</div>
                 <div id="content-4">Поля вкладки в excel</div>
                 <div id="content-5">Поля вкладки закрыть</div>
             </div>

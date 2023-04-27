@@ -314,7 +314,7 @@ delimeterempty2 {
     overflow-x:scroll;
     font-size: 12px;
     text-align: left;
-    height: 70vh;
+    max-height: 75vh;
     table-layout: fixed;
 
 }

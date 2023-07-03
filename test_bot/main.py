@@ -2,9 +2,8 @@ import telebot
 from telebot import types
 token='6253318512:AAEVeEMQqI38RibiTXnurECjX6fZ0yRNtRY'
 
-'''
- bot=telebot.TeleBot(token)
- @bot.message_handler(commands=['start'])
+bot=telebot.TeleBot(token)
+@bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id,'Привет')
 @bot.message_handler(commands=['button'])
@@ -23,11 +22,3 @@ def message_reply(message):
     elif message.text=="Кнопка 2":
         bot.send_message(message.chat.id,'Спасибо за прочтение статьи!')
 bot.infinity_polling()
-'''
-
-
-bot=telebot.Telebot(token)
-@bot.message_handler(commands=['start'])
-def start_message(message):
-  bot.send_message(message.chat.id,"Привет ✌️ ")
-bot.infinity_poling()

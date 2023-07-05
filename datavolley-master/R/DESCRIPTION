@@ -1,0 +1,40 @@
+Package: datavolley
+Title: Reading and Analyzing DataVolley Scout Files
+Version: 1.5.4
+Authors@R: c(person("Ben", "Raymond", email = "ben@untan.gl", role = c("aut", "cre")),
+             person("Adrien", "Ickowicz", role = "aut"),
+             person("Tyler", "Widdison", role = "aut"),
+             person("Christophe", "Elek", role = "ctb"),
+             person("openvolley.org", role = "org"))
+Description: Provides functions for parsing and working with volleyball match files in DataVolley format.
+Depends:
+    R (>= 3.2.4)
+URL: https://datavolley.openvolley.org, https://github.com/openvolley/datavolley
+BugReports: https://github.com/openvolley/datavolley/issues
+Imports:
+    assertthat,
+    data.table,
+    digest,
+    dplyr,
+    enc,
+    jpeg,
+    jsonlite,
+    lubridate,
+    polyclip,
+    readr,
+    stringi,
+    stringr,
+    vscoututils (>= 0.1.1),
+    xml2
+Suggests:
+    testthat,
+    ggplot2,
+    knitr,
+    raster,
+    rmarkdown,
+    covr
+Encoding: UTF-8
+License: MIT + file LICENSE
+RoxygenNote: 7.2.1
+VignetteBuilder: knitr
+Remotes: openvolley/vscoututils

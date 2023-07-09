@@ -20,10 +20,8 @@ def findWord(word, content):
             else:
                 lcount += 1
     if found:
-#        print(lcount)
         return lcount
     else:
-#        print(0)
         return 0
 
 

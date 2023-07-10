@@ -65,6 +65,8 @@ class MyGui:
             tkinter.messagebox.showinfo('DataVolley Master', 'Загружено успешно')
         else:
             tkinter.messagebox.showerror('DataVolley Master', 'Ошибка загрузки')
+
+
     
     def saveFile(self):
         status = False 

@@ -1,7 +1,7 @@
 import os
 
 def init():
-    global technical, game, set1, set2, set3, set4, set5
+    global dvwGame, technical, game, set1, set2, set3, set4, set5
     technical = []
     game = []
     set1 = []
@@ -9,6 +9,7 @@ def init():
     set3 = []
     set4 = []
     set5 = []
+    dvwGame = [technical, set1, set2, set3, set4, set5]
 
 def findWord(word, content):
     lcount = 1
@@ -26,9 +27,9 @@ def findWord(word, content):
 
 
 
-def importFile(dir, file):
-    cwd = os.getcwd()
-    os.chdir(dir)
+def importFile(file):
+#    cwd = os.getcwd()
+#    os.chdir(dir)
     lcount = 0
     found = False
     with open(file, "r") as f:

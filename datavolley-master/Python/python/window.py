@@ -12,7 +12,7 @@ class MyGui:
         
         self.window = tkinter.Tk()
         self.window.title("DataVolley Master")
-        self.window.geometry('%dx%d' % (self.window.winfo_screenwidth()*2/3, self.window.winfo_screenheight()*2/3)) 
+        self.window.geometry('%dx%d+%d+%d' % (self.window.winfo_screenwidth()*2/3, self.window.winfo_screenheight()*2/3, self.window.winfo_screenwidth()/2 - self.window.winfo_screenwidth()/3, self.window.winfo_screenheight()/2 - self.window.winfo_screenheight()/3)) 
         #self.window.rowconfigure(index=0, weight=1) 
         #self.window.columnconfigure(index=0, weight=1)
 
@@ -33,7 +33,7 @@ class MyGui:
         self.output.pack(fill='x')
 
 
-        self.cols = ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27') 
+        self.cols = ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', 'EMPTY!!!') #27 column must be empty
 
         self.listBox = tkinter.ttk.Treeview(self.window, columns=self.cols, show='headings', selectmode="extended")
         self.scrollbar = ttk.Scrollbar(orient='vertical', command=self.listBox.yview)
@@ -43,11 +43,6 @@ class MyGui:
             self.listBox.heading(col, text=col)
 
         self.listBox.pack(fill='y', expand=1)
-
-
-
-
-
 
         tkinter.mainloop()
 
@@ -73,6 +68,8 @@ class MyGui:
         filepath = filedialog.asksaveasfilename()
         if filepath != "":
             with open(filepath, "w") as f:
-                for item in load.technical + load.set1 + load.set2 + load.set3 + load.set4 + load.set5:
-                    f.write( "%s\n" %  str(item))
+                for item in load.technical:
+                    f.write("%s\n" % str(item))
+                for item in load.set1+load.set2+load.set3+load.set4+load.set5+load.set6:
+                    f.write( ";".join(str(a) for a in item) +"\n")
         

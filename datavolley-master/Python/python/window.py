@@ -71,5 +71,6 @@ class MyGui:
         filepath = filedialog.asksaveasfilename()
         if filepath != "":
             with open(filepath, "w") as f:
-                f.write(str(load.dvwGame))
+                for item in load.technical + load.set1 + load.set2 + load.set3 + load.set4 + load.set5:
+                    f.write( "%s\n" %  str(item))
         

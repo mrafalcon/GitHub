@@ -42,7 +42,7 @@ def importFile(file):
     set6.clear()
     lcount = 0
     found = False
-    with open(file, "r") as f:
+    with open(file, "r", encoding='latin-1') as f:
         content = f.read()
         content = content.split('\n')
         pos0 = findWord("[3SCOUT]", content)

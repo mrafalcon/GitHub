@@ -33,7 +33,7 @@ class MyGui:
         self.output.pack(fill='x')
 
 
-        self.cols = ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', 'EMPTY!!!') #27 column must be empty
+        self.cols = ('Code', 'ps', 'rd', '4', '5', '6', '7', 'Time', 'S', '*z', 'az', 'F', '13', '14', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'g1', 'g2', 'g3', 'g4', 'g5', 'g6') #27 column must be empty
 
         self.listBox = tkinter.ttk.Treeview(self.window, columns=self.cols, show='headings', selectmode="extended")
         self.scrollbar = ttk.Scrollbar(orient='vertical', command=self.listBox.yview)
@@ -52,7 +52,7 @@ class MyGui:
         self.file = filedialog.askopenfilename()
         load.importFile(self.file)
         self.text.set(self.file)
-        for line in load.dvwGame[3]:
+        for line in load.dvwGame[1]:
             self.listBox.insert("", "end", values=line)
             status = True
     
@@ -67,9 +67,13 @@ class MyGui:
         status = False 
         filepath = filedialog.asksaveasfilename()
         if filepath != "":
-            with open(filepath, "w") as f:
+            with open(filepath, "w", encoding='latin-1') as f:
                 for item in load.technical:
                     f.write("%s\n" % str(item))
                 for item in load.set1+load.set2+load.set3+load.set4+load.set5+load.set6:
                     f.write( ";".join(str(a) for a in item) +"\n")
-        
+                status = True
+        if status:
+            tkinter.messagebox.showinfo('DataVolley Master', 'Сохранено')
+        else:
+            tkinter.messagebox.showerror('DataVolley Master', 'Ошибка при сохранении')

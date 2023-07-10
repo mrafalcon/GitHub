@@ -1,4 +1,5 @@
 import os
+from tabulate import tabulate
 
 def init():
     global dvwGame, technical, game, set1, set2, set3, set4, set5
@@ -30,6 +31,13 @@ def findWord(word, content):
 def importFile(file):
 #    cwd = os.getcwd()
 #    os.chdir(dir)
+    technical.clear()
+    game.clear()
+    set1.clear()
+    set2.clear()
+    set3.clear()
+    set4.clear()
+    set5.clear()
     lcount = 0
     found = False
     with open(file, "r") as f:
@@ -42,6 +50,7 @@ def importFile(file):
         pos4 = findWord("**4set", content)
         pos5 = findWord("**5set", content)
 
+ 
         for i in range (pos0):
             technical.append(content[i])
         for i in range (pos0, len(content)):
@@ -68,4 +77,7 @@ def importFile(file):
                 set5.append(content[i])
             for i in range(len(set5)):
                 set5[i] = str(set5[i]).split(';')
+        
+
+        #print(tabulate(dvwGame[3]))
 #    return technical, game, set1, set2, set3, set4, set5

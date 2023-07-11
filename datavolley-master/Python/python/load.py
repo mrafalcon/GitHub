@@ -1,8 +1,9 @@
 import os
 from tabulate import tabulate
+import re
 
 def init():
-    global dvwGame, technical, game, set1, set2, set3, set4, set5, set6
+    global dvwGame, technical, game, set1, set2, set3, set4, set5, set6, code
     technical = []
     game = []
     set1 = []
@@ -12,6 +13,7 @@ def init():
     set5 = []
     set6 = []
     dvwGame = [technical, set1, set2, set3, set4, set5, set6]
+    code = []
 
 def findWord(word, content):
     lcount = 1
@@ -30,8 +32,8 @@ def findWord(word, content):
 
 
 def importFile(file):
-#    cwd = os.getcwd()
-#    os.chdir(dir)
+    global statusLoad
+    statusLoad = False
     technical.clear()
     game.clear()
     set1.clear()
@@ -40,6 +42,7 @@ def importFile(file):
     set4.clear()
     set5.clear()
     set6.clear()
+    code.clear()
     lcount = 0
     found = False
     with open(file, "r", encoding='latin-1') as f:
@@ -52,6 +55,7 @@ def importFile(file):
         pos4 = findWord("**4set", content)
         pos5 = findWord("**5set", content)
         pos6 = findWord("**6set", content)
+    
 
  
         for i in range (pos0):
@@ -86,6 +90,10 @@ def importFile(file):
             for i in range(len(set6)):
                 set6[i] = str(set6[i]).split(';')
         
-
-        #print(tabulate(dvwGame[3]))
-#    return technical, game, set1, set2, set3, set4, set5
+        for i in range(1,6):
+            for j in range(len(dvwGame[i])):
+                code.append(dvwGame[i][j][0])
+        for i in range(len(code)):
+            code[i] = re.split(r'\~+', code[i])
+    if len(code) > 0:
+        statusLoad = True

@@ -2,11 +2,6 @@ from tabulate import tabulate
 import load
 from window import MyGui
 
-load.init()
-def init():
-    global dvwGame
-    dvwGame = []
-
 
 #load.importFile("datavolley-master/Games/&crm23.po.sem5-8.1 BEL-ASK3-2.dvw")
 #dvwGame = load.dvwGame
@@ -19,3 +14,4 @@ def init():
 #print(tabulate(dvwGame[5][4:-1]))
 
 new_window = MyGui()
+

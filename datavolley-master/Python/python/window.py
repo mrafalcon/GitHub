@@ -1,4 +1,4 @@
-#import main
+import settings
 import load
 import tkinter
 from tkinter import filedialog
@@ -24,19 +24,37 @@ class MyGui:
         self.btnExit.pack(fill='x', side='bottom')
         self.btnOpen = tkinter.Button(self.window, text="Сохранить файл", command=self.saveFile)
         self.btnOpen.pack(fill='x', side='bottom')
+        self.btnOpen = tkinter.Button(self.window, text="Обновить", command=self.updateData)
+        self.btnOpen.pack(fill='x', side='bottom')
         self.btnOpen = tkinter.Button(self.window, text="Открыть файл", command=self.openFile)
         self.btnOpen.pack(fill='x', side='bottom')
 
-        
         self.text = tkinter.StringVar()
         self.output = tkinter.Label(self.window, textvariable=self.text, font=("Arial Bold", 12))
         self.output.pack(fill='x')
 
+        self.tab_control = tkinter.ttk.Notebook(self.window)  
+        self.tab1 = tkinter.ttk.Frame(self.tab_control)  
+        self.tab2 = tkinter.ttk.Frame(self.tab_control)  
+        self.tab3 = tkinter.ttk.Frame(self.tab_control) 
+        self.tab_control.add(self.tab1, text='Игра')  
+        self.tab_control.add(self.tab2, text='Код') 
+        self.tab_control.add(self.tab3, text='Настройки')  
+        self.lbl1 = tkinter.Label(self.tab1, text='[3SCOUT]')  
+        self.lbl1.pack()  
+        self.lbl2 = tkinter.Label(self.tab2, text=' ')  
+        self.lbl2.pack() 
+        self.lbl3 = tkinter.Label(self.tab3, text='Настройки')  
+        self.lbl3.pack()   
+        self.tab_control.pack(expand=1, fill='both') 
+        
 
-        self.cols = ('Code', 'ps', 'rd', '4', '5', '6', '7', 'Time', 'S', '*z', 'az', 'F', '13', '14', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'g1', 'g2', 'g3', 'g4', 'g5', 'g6') #27 column must be empty
 
-        self.listBox = tkinter.ttk.Treeview(self.window, columns=self.cols, show='headings', selectmode="extended")
-        self.scrollbar = ttk.Scrollbar(orient='vertical', command=self.listBox.yview)
+
+        self.cols = ('Code', 'ps', 'rd', '4', '5', '6', '7', 'Time', 'Set', '*z', 'az', 'F', '13', '14', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6') #27 column must be empty
+
+        self.listBox = tkinter.ttk.Treeview(self.tab1, columns=self.cols, show='headings', selectmode="extended")
+        self.scrollbar = ttk.Scrollbar(self.tab1, orient='vertical', command=self.listBox.yview)
         self.listBox.configure(yscroll=self.scrollbar.set) 
         self.scrollbar.pack(side='right', fill='both')
         for col in self.cols:
@@ -44,22 +62,46 @@ class MyGui:
 
         self.listBox.pack(fill='y', expand=1)
 
+
+        self.cols2 = ('Main', 'Advanced', 'Extended', 'Custom') #27 column must be empty
+
+        self.listBox2 = tkinter.ttk.Treeview(self.tab2, columns=self.cols2, show='headings', selectmode="extended")
+        self.scrollbar2 = ttk.Scrollbar(self.tab2, orient='vertical', command=self.listBox2.yview)
+        self.listBox2.configure(yscroll=self.scrollbar2.set) 
+        self.scrollbar2.pack(side='right', fill='both')
+        for col in self.cols2:
+            self.listBox2.heading(col, text=col)
+
+        self.listBox2.pack(fill='y', expand=1)
+
+
         tkinter.mainloop()
 
     def openFile(self):
-        status = False 
+
         self.listBox.delete(*self.listBox.get_children())
+        self.listBox2.delete(*self.listBox2.get_children())
         self.file = filedialog.askopenfilename()
         load.importFile(self.file)
-        self.text.set(self.file)
-        for line in load.dvwGame[1]:
-            self.listBox.insert("", "end", values=line)
-            status = True
-    
-        if status:
+        self.text.set("Открыт файл: "+self.file)
+        self.updateData()
+        
+        if load.statusLoad:
             tkinter.messagebox.showinfo('DataVolley Master', 'Загружено успешно')
         else:
             tkinter.messagebox.showerror('DataVolley Master', 'Ошибка загрузки')
+    
+    def updateData(self):
+        self.listBox.delete(*self.listBox.get_children())
+        self.listBox2.delete(*self.listBox2.get_children())
+        status = False 
+        for i in range(1,6):
+            for line in load.dvwGame[i]:
+                self.listBox.insert("", "end", values=line)
+                status = True
+        for line in load.code:
+            self.listBox2.insert("", "end", values=line)
+            status = True
 
 
     

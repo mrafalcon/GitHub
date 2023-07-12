@@ -1,5 +1,5 @@
 import settings
-import clean_custom
+import custom
 import read_dv
 import write_dv
 import datavolley
@@ -11,6 +11,8 @@ from tkinter import Menu
 
 datavolley.init()
 #main.init()
+
+
 
 class MyGui:
     def __init__(self):
@@ -128,7 +130,8 @@ class MyGui:
 
         self.cols2 = ('Main', 'Advanced', 'Extended', 'Custom') #27 column must be empty
         
-        self.btnOpen = tkinter.Button(self.tab2, text="Clean Custom", command=self.cleanCustom)
+        self.btnClean = tkinter.Button(self.tab2, text="Clean Custom", command=self.cleanCustom)
+        self.btnServe = tkinter.Button(self.tab2, text="Serve Custom", command=self.serveCustom)
         self.listBox2 = tkinter.ttk.Treeview(self.tab2, columns=self.cols2, show='headings', selectmode="extended")
         self.scrollbar2 = ttk.Scrollbar(self.tab2, orient='vertical', command=self.listBox2.yview)
         self.listBox2.configure(yscroll=self.scrollbar2.set) 
@@ -137,18 +140,19 @@ class MyGui:
 
         self.scrollbar2.pack(side='right', fill='both')
         self.listBox2.pack(fill='y', expand=1, side='right', padx='5')
-        self.btnOpen.pack(padx='5')
+        self.btnClean.pack(padx='5')
+        self.btnServe.pack(padx='5')
 
 
         tkinter.mainloop()
 
     def openFile(self):
-
+        global openfilepath
         #self.listBox.delete(*self.listBox.get_children())
         self.listBox2.delete(*self.listBox2.get_children())
-        self.file = filedialog.askopenfilename()
-        read_dv.importFile(self.file)
-        self.text.set("Открыт файл: "+self.file)
+        openfilepath = filedialog.askopenfilename()
+        read_dv.importFile(openfilepath)
+        self.text.set("Открыт файл: "+ openfilepath)
         self.getMatchInfo()
         self.updateData()
         
@@ -186,6 +190,7 @@ class MyGui:
     def undoAll(self):
         self.listBox2.delete(*self.listBox2.get_children())
         status = False 
+        read_dv.importFile(openfilepath)
         datavolley.splitCategory(datavolley.dvwGame)
         for line in datavolley.codeCategory:
             self.listBox2.insert("", "end", values=line)
@@ -216,11 +221,22 @@ class MyGui:
 
     def cleanCustom(self):
         status = False
-        clean_custom.customClean()
-        if clean_custom.customClean():
+        if custom.customClean():
             status = True
         if status:
             tkinter.messagebox.showinfo('DataVolley Master', 'Clean')
+            self.updateData()
+        else:
+            tkinter.messagebox.showerror('DataVolley Master', 'Error')
+            datavolley.splitCategory(datavolley.dvwGame)
+            self.undoAll()
+    
+    def serveCustom(self):
+        status = False
+        if custom.customServeNum():
+            status = True
+        if status:
+            tkinter.messagebox.showinfo('DataVolley Master', 'Serve')
             self.updateData()
         else:
             tkinter.messagebox.showerror('DataVolley Master', 'Error')

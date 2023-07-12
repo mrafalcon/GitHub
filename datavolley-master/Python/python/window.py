@@ -14,7 +14,7 @@ class MyGui:
         self.window = tkinter.Tk()
         self.window.title("DataVolley Master")
         self.window.geometry('%dx%d+%d+%d' % (self.window.winfo_screenwidth()*2/3, self.window.winfo_screenheight()*2/3, self.window.winfo_screenwidth()/2 - self.window.winfo_screenwidth()/3, self.window.winfo_screenheight()/2 - self.window.winfo_screenheight()/3)) 
-        self.window.iconbitmap('datavolley-master\Python\img\logo.ico')
+        self.window.iconbitmap('datavolley-master/Python/img/logo.ico')
         #self.window.rowconfigure(index=0, weight=1) 
         #self.window.columnconfigure(index=0, weight=1)
 

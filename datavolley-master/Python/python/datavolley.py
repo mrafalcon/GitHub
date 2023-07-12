@@ -1,6 +1,8 @@
 import os
-from tabulate import tabulate
 import re
+import read_dv
+import functions
+
 
 def init():
     global dvwGame, technical, game, set1, set2, set3, set4, set5, set6, code, codeCategory, DVS,Match,Teams, More , Comments , Set, PlayersH , PlayersV , Attack , Setter , Win , Reserve , Video 
@@ -36,27 +38,7 @@ def init():
     Video = []
 
 
-def importFile(file):
-    global statusLoad, text_encoding
-    statusLoad = False
-
-    with open(file, "r", encoding='cp1251') as f:
-        content = f.read()
-        content = content.split('\n')
-        text_encoding = 'cp'+str(content[findWord("[3MATCH]", content)]).split(';')[8]
-
-    if text_encoding != 'cp1251':
-        with open(file, "r", encoding=text_encoding) as f:
-            content = f.read()
-            content = content.split('\n')
-    
-    readFile(content)
-        
-    if len(code) > 0:
-        statusLoad = True
-
 def readFile(content):
-
     technical.clear()
     game.clear()
     set1.clear()
@@ -65,7 +47,7 @@ def readFile(content):
     set4.clear()
     set5.clear()
     set6.clear()
-    code.clear()
+
     DVS.clear()
     Match.clear()
     Teams.clear()
@@ -81,26 +63,26 @@ def readFile(content):
     Video.clear()
 
 
-    posDVS = findWord("[3DATAVOLLEYSCOUT]", content)
-    posMatch = findWord("[3MATCH]", content)
-    posTeams = findWord("[3TEAMS]", content)
-    posMore = findWord("[3MORE]", content)
-    posComments = findWord("[3COMMENTS]", content)
-    posSet = findWord("[3SET]", content)
-    posPlayersH = findWord("[3PLAYERS-H]", content)
-    posPlayersV = findWord("[3PLAYERS-V]", content)
-    posAttack = findWord("[3ATTACKCOMBINATION]", content)
-    posSetter = findWord("[3SETTERCALL]", content)
-    posWin = findWord("[3WINNINGSYMBOLS]", content)
-    posReserve = findWord("[3RESERVE]", content)
-    posVideo = findWord("[3VIDEO]", content)
-    pos0 = findWord("[3SCOUT]", content)
-    pos1 = findWord("**1set", content)
-    pos2 = findWord("**2set", content)
-    pos3 = findWord("**3set", content)
-    pos4 = findWord("**4set", content)
-    pos5 = findWord("**5set", content)
-    pos6 = findWord("**6set", content)
+    posDVS = functions.findWord("[3DATAVOLLEYSCOUT]", content)
+    posMatch = functions.findWord("[3MATCH]", content)
+    posTeams = functions.findWord("[3TEAMS]", content)
+    posMore = functions.findWord("[3MORE]", content)
+    posComments = functions.findWord("[3COMMENTS]", content)
+    posSet = functions.findWord("[3SET]", content)
+    posPlayersH = functions.findWord("[3PLAYERS-H]", content)
+    posPlayersV = functions.findWord("[3PLAYERS-V]", content)
+    posAttack = functions.findWord("[3ATTACKCOMBINATION]", content)
+    posSetter = functions.findWord("[3SETTERCALL]", content)
+    posWin = functions.findWord("[3WINNINGSYMBOLS]", content)
+    posReserve = functions.findWord("[3RESERVE]", content)
+    posVideo = functions.findWord("[3VIDEO]", content)
+    pos0 = functions.findWord("[3SCOUT]", content)
+    pos1 = functions.findWord("**1set", content)
+    pos2 = functions.findWord("**2set", content)
+    pos3 = functions.findWord("**3set", content)
+    pos4 = functions.findWord("**4set", content)
+    pos5 = functions.findWord("**5set", content)
+    pos6 = functions.findWord("**6set", content)
     
      
     for i in range (pos0):
@@ -206,19 +188,36 @@ def readFile(content):
             set6[i] = str(set6[i]).split(';')
     
 
-    for i in range(1,6):
+    splitCategory(dvwGame)
+
+def splitCategory(dvwGame):  
+    code.clear()
+    for i in range(1,7):
         for j in range(len(dvwGame[i])):
             code.append(dvwGame[i][j][0])
-
-    splitCategory(code)
-
-def splitCategory(code):  
     codeCategory.clear()      
     for i in range(len(code)):
-        if code[i][0:2] == '*p' or code[i][0:2] ==  'ap' or code[i][0:2] == '*P' or code[i][0:2] == 'aP' or code[i][0:2] ==  '*z' or code[i][0:2] ==  'az' or code[i][0:2] ==  '**' :
+        if code[i][0:2] == '*p' or code[i][0:2] ==  'ap' or code[i][0:2] == '*P' or code[i][0:2] == 'aP' or code[i][0:2] ==  '*z' or code[i][0:2] ==  'az' or code[i][0:2] ==  '**' or code[i][0:2] ==  '*c'  or code[i][0:2] ==  'ac' :
             codeCategory.append([code[i],'','',''])
         else:
             codeCategory.append([code[i][0:6],code[i][6:12],code[i][12:15],code[i][15:20]])
+
+
+
+def megreCategory(codeCategory):
+    for i in range(len(codeCategory)):
+        code[i] = ''.join(codeCategory[i])
+    for i in range(len(code)):
+        code[i] = code[i].strip('~')
+    c = 0
+    for i in range(1,7):
+        for j in range(len(dvwGame[i])):
+            dvwGame[i][j][0] = code[c]
+            c=c+1
+    
+    
+
+
 
 '''
 [0:6] - main code
@@ -228,17 +227,5 @@ def splitCategory(code):
 '''
 
 
-def findWord(word, content):
-    lcount = 1
-    found = False
-    for i in range(len(content)):
-            if word in content[i]: # If word is in line
-                found = True
-                break
-            else:
-                lcount += 1
-    if found:
-        return lcount
-    else:
-        return 0
+
 

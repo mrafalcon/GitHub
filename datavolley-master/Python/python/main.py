@@ -1,5 +1,3 @@
-from tabulate import tabulate
-import load
 from window import MyGui
 
 

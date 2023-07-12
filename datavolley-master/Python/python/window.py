@@ -132,6 +132,7 @@ class MyGui:
         
         self.btnClean = tkinter.Button(self.tab2, text="Clean Custom", command=self.cleanCustom)
         self.btnServe = tkinter.Button(self.tab2, text="Serve Custom", command=self.serveCustom)
+        #self.btnEnds = tkinter.Button(self.tab2, text="Ends Custom", command=self.serveEnds)
         self.listBox2 = tkinter.ttk.Treeview(self.tab2, columns=self.cols2, show='headings', selectmode="extended")
         self.scrollbar2 = ttk.Scrollbar(self.tab2, orient='vertical', command=self.listBox2.yview)
         self.listBox2.configure(yscroll=self.scrollbar2.set) 
@@ -142,6 +143,7 @@ class MyGui:
         self.listBox2.pack(fill='y', expand=1, side='right', padx='5')
         self.btnClean.pack(padx='5')
         self.btnServe.pack(padx='5')
+        #self.btnEnds.pack(padx='5')
 
 
         tkinter.mainloop()
@@ -233,7 +235,7 @@ class MyGui:
     
     def serveCustom(self):
         status = False
-        if custom.customServeNum():
+        if custom.customServe():
             status = True
         if status:
             tkinter.messagebox.showinfo('DataVolley Master', 'Serve')
@@ -242,3 +244,15 @@ class MyGui:
             tkinter.messagebox.showerror('DataVolley Master', 'Error')
             datavolley.splitCategory(datavolley.dvwGame)
             self.undoAll()
+
+    #def serveEnds(self):
+    #    status = False
+    #    if custom.customEnds():
+    #        status = True
+    #    if status:
+    #        tkinter.messagebox.showinfo('DataVolley Master', 'End')
+    #        self.updateData()
+    #    else:
+    #        tkinter.messagebox.showerror('DataVolley Master', 'Error')
+    #        datavolley.splitCategory(datavolley.dvwGame)
+    #        self.undoAll()

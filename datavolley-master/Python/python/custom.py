@@ -74,10 +74,10 @@ def customServe():
                     tempcodeCategory[i][3] = '{}{}'.format(tempcodeCategory[i][3], str('U'))
 
                 if allgame[i][8] in set(('1', '2', '3', '4')):
-                    if scoreDec in set(('22', '33', '44', '55', '66', '77', '88', '99')):
+                    if scoreDec[0] in set(('2', '3', '4', '5', '6', '7', '8', '9')) and scoreDec[1] in set(('2', '3', '4', '5', '6', '7', '8', '9')):
                         tempcodeCategory[i][3] = '{}{}'.format(tempcodeCategory[i][3], str('E'))
                 elif allgame[i][8] == '5':
-                    if scoreDec in set(('11', '22', '33', '44', '55', '66', '77', '88', '99')):
+                    if scoreDec[0] in set(('1', '2', '3', '4', '5', '6', '7', '8', '9')) and scoreDec[1] in set(('1', '2', '3', '4', '5', '6', '7', '8', '9')):
                         tempcodeCategory[i][3] = '{}{}'.format(tempcodeCategory[i][3], str('E'))
 
                 
